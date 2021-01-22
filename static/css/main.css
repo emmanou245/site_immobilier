@@ -1,0 +1,17 @@
+#logo{
+     }
+      body{
+      background-color: #c5b9b9;
+      margin: 0px;
+      padding: 0px;
+      text-decoration: none;
+      text-decoration: none;
+      transition: 0.5s all;
+      -webkit-transition: 0.5s all;
+      -moz-transition: 0.5s all;
+      -o-transition: 0.5s all;
+      -ms-transition: 0.5s all;
+      }
+      #total-orders{
+      background-color: #7e3232;
+      }

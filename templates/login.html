@@ -1,0 +1,47 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">BIENVENU SUR LA PAGE SECONNECTER</h1>
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded">SECONNECTER</h3>
+            <form action="/login" method="POST">
+                {%csrf_token%}
+                {{form.as_p}}
+                 <!-- Nom -->
+                {% if error%}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
+
+                <!-- Nom d'utilisateur -->
+                <div class="form-group">
+                    <label for="user">Nom d'utilisateur</label>
+                    <input type="text" name="username" id="user" value="{{value.username}}"
+                           class="form-control form-control-sm" placeholder="Nom d'utilisateur">
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" id="Password"
+                           class="form-control form-control-sm" placeholder="********">
+                </div>
+                <!-- SECONNECTER -->
+                <br>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-sm btn-green" value="SECONNECTER">
+
+                    <a class="btn btn-sm btn-secondary" href="signup">S'INSCRIRE</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}>

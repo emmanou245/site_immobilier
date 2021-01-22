@@ -1,0 +1,66 @@
+{% extends 'index.html'%}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">BIENVENU SUR LA PAGE D'INSCRIPTION</h1>
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded">Creer Un Compte</h3>
+            <form action="/signup" method="POST">
+                {%csrf_token%}
+                {{form.as_p}}
+                 <!-- Nom -->
+                {% if error%}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
+                <!-- Nom d'utilisateur -->
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" name="username" id="Username"
+                           class="form-control form-control-sm" placeholder="Votre nom d'utilisateur">
+                </div>
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="Prenom">Prenom</label>
+                    <input type="text" name="first_name" id="Prenom"
+                           class="form-control form-control-sm" placeholder="Votre prenom">
+                </div>
+                <!-- prenom -->
+
+                <div class="form-group">
+                    <label for="Nom">Nom</label>
+                    <input type="text" name="last_name" id="Nom"
+                           class="form-control form-control-sm" placeholder="Votre nom">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" name="email" id="Email"
+                           class="form-control form-control-sm" placeholder="example@gmail.com">
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" id="Password"
+                           class="form-control form-control-sm" placeholder="********">
+                </div>
+                <!-- CreateAcount -->
+                <br>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-sm btn-secondary" value="Creer">
+                    <a class="btn btn-sm btn-danger" href="{%url 'login'%}">Retour en arrière</a>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

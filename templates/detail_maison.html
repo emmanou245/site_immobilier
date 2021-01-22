@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center">BIENVENU SUR LA PAGE DE GESTION DETAIL!</h1>
+<br>
+<div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Maison:</h5>
+                <hr>
+                <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'index' %}">Retour A l'Accueil</a>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <h5> Informations Sur La Maison:</h5>
+                <table class="table table-sm">
+                    <tr>
+                        <th> Categorie</th>
+                        <th> Nombre_chambre</th>
+                        <th> Prix</th>
+                        <th> Quartier</th>
+                    </tr>
+
+                    <tr>
+                        <th> {{maison.categorie}}</th>
+                        <th> {{maison.nombre_chambre}}</th>
+                        <th> {{maison.prix}}</th>
+                        <th> {{maison.quartier}}</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <h5> Total des Commandes:</h5>
+                <hr>
+                <h1 style="text-align: center; paddign: 10px">{{commandes.count}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <h5>Commandes:</h5>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <form action="#" method="POST">
+                {%csrf_token%}
+                 <!-- Nom -->
+                <!-- Category -->
+                <div class="form-group">
+
+                    <label for="Description">Message</label>
+                    <textarea name="message" id="Description"
+                              class="form-control form-control-sm" placeholder="Ecrire votre message"></textarea>
+
+
+                </div>
+
+                 <br>
+                <!-- date de naissance -->
+
+                <div class="form-group">
+                    <label for="telephone">telephone</label>
+                    <input type="tel" name="telephone" id="telephone"
+                           class="form-control form-control-sm" placeholder="666645555">
+                </div>
+
+
+                <br>
+
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Lancer Demande</button>
+                </div>
+            </form>
+
+            </div>
+
+        </div>
+    </table>
+</div>
+</div>
+
+{% endblock %}
