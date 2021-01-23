@@ -4,22 +4,28 @@
 <div class="container">
 <h1 class="text-center">BIENVENU SUR LA PAGE DE GESTION DETAIL!</h1>
 <br>
-<div class="row">
-        <div class="col-md">
-            <div class="card card-body">
-                <h5>Maison:</h5>
+        <div class="row">
+            <div class="col-8">
+                <div class="card card-body">
+                    <h5>
+                        <i class="fa fa-home" aria-hidden="true"></i> Maison:
+                    </h5>
+                    <hr>
+                    <img src="{{maison.photo.url}}" class="progressive-image img-fluid w-100 progressive-image-4"   alt="....">
+                </div>
+                <br>
+                <div class="card card-body">
+                <h4 class="text-center"> Informations Sur La Maison:</h4>
                 <hr>
-                <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'index' %}">Retour A l'Accueil</a>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card card-body">
-                <h5> Informations Sur La Maison:</h5>
                 <table class="table table-sm">
                     <tr>
                         <th> Categorie</th>
-                        <th> Nombre_chambre</th>
+                        <th> Chambres</th>
                         <th> Prix</th>
+                        <th> Dépôt initial</th>
+                        <th> Caution</th>
+                        <th> Disponibilité vérifié dernierement</th>
+                        <th> Ville</th>
                         <th> Quartier</th>
                     </tr>
 
@@ -27,68 +33,57 @@
                         <th> {{maison.categorie}}</th>
                         <th> {{maison.nombre_chambre}}</th>
                         <th> {{maison.prix}}</th>
+                        <th> {{maison.depot_initial}}</th>
+                        <th> {{maison.caution}}</th>
+                        <th> {{maison.disponibilite}}</th>
+                        <th> {{maison.ville}}</th>
                         <th> {{maison.quartier}}</th>
                     </tr>
                 </table>
+
             </div>
-        </div>
-        <div class="col-md">
-            <div class="card card-body">
-                <h5> Total des Commandes:</h5>
-                <hr>
-                <h1 style="text-align: center; paddign: 10px">{{commandes.count}}</h1>
             </div>
-        </div>
-    </div>
 
-    <br>
-    <div class="row">
-        <div class="col">
-            <div class="card card-body">
-                <h5>Commandes:</h5>
-                <hr>
-            </div>
-        </div>
-    </div>
+            <div class="col-4">
+                <div class="card card-body">
+                <h5 class="text-center"> Si vous etes intéressé par le propriété veuillez remplir le formulaire si dessous et envoyé!:</h5>
+                    <hr>
+                    <form action="#" method="POST">
+                        {%csrf_token%}
+                         <!-- Nom -->
+                        <!-- Category -->
+                        <div class="form-group">
 
-    <div class="row">
-        <div class="col-md">
-            <div class="card card-body">
-                <form action="#" method="POST">
-                {%csrf_token%}
-                 <!-- Nom -->
-                <!-- Category -->
-                <div class="form-group">
+                            <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
+                            Message</label>
+                            <textarea name="message"
+                                      id="Description"
+                                      class="form-control form-control"
+                                      placeholder="Ecrire un message au propriétaire"></textarea>
+                        </div>
 
-                    <label for="Description">Message</label>
-                    <textarea name="message" id="Description"
-                              class="form-control form-control-sm" placeholder="Ecrire votre message"></textarea>
+                        <div class="form-group">
+                            <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
+                            telephone</label>
+                            <input type="tel" name="telephone" id="telephone"
+                                   class="form-control form-control" placeholder="exemple:65865412">
+                        </div>
 
 
+                        <br>
+
+                        <div class="form-group">
+                            <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Lancer La Demande</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="form-group">
+                        <p class="alert alert-info p-4 text-small"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou immobilierrenter2021@gmail.com </p>
+                    </div>
                 </div>
-
-                 <br>
-                <!-- date de naissance -->
-
-                <div class="form-group">
-                    <label for="telephone">telephone</label>
-                    <input type="tel" name="telephone" id="telephone"
-                           class="form-control form-control-sm" placeholder="666645555">
-                </div>
-
-
-                <br>
-
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Lancer Demande</button>
-                </div>
-            </form>
-
             </div>
-
         </div>
-    </table>
-</div>
 </div>
 
 {% endblock %}

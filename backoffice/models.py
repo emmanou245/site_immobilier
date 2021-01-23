@@ -20,11 +20,16 @@ class Maison(models.Model):
     description = models.TextField(null=True)
     prix = models.FloatField(null=True)
     quartier = models.CharField(max_length=256,null=True)
+    ville = models.CharField(max_length=256, null=True)
+    depot_initial = models.CharField(max_length=256,null=True)
+    caution = models.FloatField(null=True)
+    disponibilite = models.DateTimeField(null=True)
     #location = PointField(null=True,dim=2)
     date_creation = models.DateTimeField(auto_now_add=True, null=True)
 
+
     def __str__(self):
-        return '{} {} {}'.format(self.categorie,self.photo,self.quartier)
+        return '{} {} {}'.format(self.categorie,self.ville,self.quartier)
 
     @staticmethod
     def get_all_maisons():
@@ -48,3 +53,5 @@ class Commande(models.Model):
     message = models.TextField(null=True)
     date_creation = models.DateTimeField(auto_now_add=True, null=True)
 
+    def __str__(self):
+        return '{} {}'.format(self.maison,self.user)

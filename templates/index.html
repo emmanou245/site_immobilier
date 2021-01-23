@@ -30,6 +30,8 @@
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" media="all" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+
 </head>
 
 <body>
@@ -37,7 +39,41 @@
 
     {% block content %}
 
-        <h1 class="text-center">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</h1>
+    <section id="banner_details" class="row pl-md-5 pr-md-5 mb-5 mdt-5 no-fixed-top">
+		<div id="valid_proposition" class="col-md-8 col-sm-7 col-xs-12
+			pr-3 pr-sm-4 pr-md-5
+
+			d-flex flex-column justify-content-around
+		">
+			<div class="pr-0 pr-sm-4 pr-md-5 mr-0 mr-sm-4 mr-md-5">
+				<h2 class="glass-back p-3"> Trouvez des maisons à louer sans stress</h2>
+				<p class="glass-back p-3"> Vous êtes à quelques clics de votre maison de rêve, de votre bureau et de votre mini cite. </p>
+
+			</div>
+		</div>
+		<div id="banner_filter" class="col-md-4 col-sm-5 col-xs-12">
+
+			<div class="pt-3 pb-3 pl-3 pr-3 glass-back">
+				<form action="https://digitalrenter.com/fr/search" method="get">
+					<div class="mt-4 mb-2">
+						<select required="" name="house_type[]" class="select-autocomplete selectized" type="text" placeholder="Apartement, studio, chambre ?" tabindex="-1" style="display: none;"><option value="single_room" selected="selected"> Chambres </option></select><div class="selectize-control select-autocomplete single"><div class="selectize-input items required full has-options has-items"><div class="item" data-value="single_room"> Chambres </div><input type="text" autocomplete="off" tabindex="" style="width: 4px; opacity: 0; position: absolute; left: -10000px;"></div><div class="selectize-dropdown single select-autocomplete" style="display: none; width: 408.117px; top: 36.2333px; left: 0px; visibility: visible;"><div class="selectize-dropdown-content"><div class="option selected" data-selectable="" data-value="single_room"> Chambres </div><div class="option" data-selectable="" data-value="apartment"> Appartements </div><div class="option" data-selectable="" data-value="studio"> Studios </div><div class="option" data-selectable="" data-value="store"> Stores </div><div class="option" data-selectable="" data-value="duplex"> Duplexes </div><div class="option" data-selectable="" data-value="guest_house"> Chambres d' hôtes </div></div></div></div>
+					</div>
+
+					<div class="mt-2 mb-2">
+						<select name="location" class="select-autocomplete selectized" type="text" placeholder="Ville, quartier, ..." tabindex="-1" style="display: none;"><option value="city-Bafia-10019" selected="selected">Bafia</option></select><div class="selectize-control select-autocomplete single"><div class="selectize-input items full has-options has-items"><div class="item" data-value="city-Bafia-10019">Bafia</div><input type="text" autocomplete="off" tabindex="" style="width: 4px; opacity: 0; position: absolute; left: -10000px;"></div><div class="selectize-dropdown single select-autocomplete" style="display: none; width: 408.117px; top: 36.2333px; left: 0px; visibility: visible;"><div class="selectize-dropdown-content"><div class="optgroup" data-group="Ville"><div class="optgroup-header">Ville</div><div class="option" data-selectable="" data-value="city-Bafang-10067">Bafang</div><div class="option selected" data-selectable="" data-value="city-Bafia-10019">Bafia</div><div class="option" data-selectable="" data-value="city-Buea-10086">Buea</div><div class="option" data-selectable="" data-value="city-Douala-10039">Douala</div><div class="option" data-selectable="" data-value="city-Kumba-10088">Kumba</div><div class="option" data-selectable="" data-value="city-Limbe-10089">Limbe</div><div class="option" data-selectable="" data-value="city-Mile 16-24464">Mile 16</div><div class="option" data-selectable="" data-value="city-Mile 18-24465">Mile 18</div><div class="option" data-selectable="" data-value="city-Muea-24463">Muea</div><div class="option" data-selectable="" data-value="city-Yaounde-10028">Yaounde</div></div><div class="optgroup" data-group="Quartier / Localité"><div class="optgroup-header">Quartier / Localité</div><div class="option" data-selectable="" data-value="quarter-Ahala-36">Ahala</div><div class="option" data-selectable="" data-value="quarter-Ange Raphaël-31">Ange Raphaël</div><div class="option" data-selectable="" data-value="quarter-Any good quarter -50">Any good quarter </div><div class="option" data-selectable="" data-value="quarter-Bakweri Town-4">Bakweri Town</div><div class="option" data-selectable="" data-value="quarter-Baoba - Bonamousadi-46">Baoba - Bonamousadi</div><div class="option" data-selectable="" data-value="quarter-Bastos-48">Bastos</div><div class="option" data-selectable="" data-value="quarter-Biaka Institute-10">Biaka Institute</div><div class="option" data-selectable="" data-value="quarter-Bobende-65">Bobende</div><div class="option" data-selectable="" data-value="quarter-Bokwai-83">Bokwai</div><div class="option" data-selectable="" data-value="quarter-Bokwango-9">Bokwango</div><div class="option" data-selectable="" data-value="quarter-Bomaka-7">Bomaka</div><div class="option" data-selectable="" data-value="quarter-Bonakama-43">Bonakama</div><div class="option" data-selectable="" data-value="quarter-Bonamousadi-47">Bonamousadi</div><div class="option" data-selectable="" data-value="quarter-Bonduma-5">Bonduma</div><div class="option" data-selectable="" data-value="quarter-Borstal-23">Borstal</div><div class="option" data-selectable="" data-value="quarter-Buea Road-37">Buea Road</div><div class="option" data-selectable="" data-value="quarter-Buea Town-17">Buea Town</div><div class="option" data-selectable="" data-value="quarter-Camsic-20">Camsic</div><div class="option" data-selectable="" data-value="quarter-Check Point-15">Check Point</div><div class="option" data-selectable="" data-value="quarter-Clerks Quarters-84">Clerks Quarters</div><div class="option" data-selectable="" data-value="quarter-Dirty South-3">Dirty South</div><div class="option" data-selectable="" data-value="quarter-Down Beach-27">Down Beach</div><div class="option" data-selectable="" data-value="quarter-Dr Biaka Street-19">Dr Biaka Street</div><div class="option" data-selectable="" data-value="quarter-Federal Quarter-25">Federal Quarter</div><div class="option" data-selectable="" data-value="quarter-Federal quarters-63">Federal quarters</div><div class="option" data-selectable="" data-value="quarter-From bunduma upwards-52">From bunduma upwards</div><div class="option" data-selectable="" data-value="quarter-GRA-26">GRA</div><div class="option" data-selectable="" data-value="quarter-Great soppo-2">Great soppo</div><div class="option" data-selectable="" data-value="quarter-Kotto - Bonamousadi-38">Kotto - Bonamousadi</div><div class="option" data-selectable="" data-value="quarter-Kotto Block L-16">Kotto Block L</div><div class="option" data-selectable="" data-value="quarter-Liongo-82">Liongo</div><div class="option" data-selectable="" data-value="quarter-Malingo-1">Malingo</div><div class="option" data-selectable="" data-value="quarter-Mile 16-89">Mile 16</div><div class="option" data-selectable="" data-value="quarter-Mile 17-21">Mile 17</div><div class="option" data-selectable="" data-value="quarter-Mile 18-67">Mile 18</div><div class="option" data-selectable="" data-value="quarter-Mile 2-18">Mile 2</div><div class="option" data-selectable="" data-value="quarter-Mile 4-24">Mile 4</div><div class="option" data-selectable="" data-value="quarter-Minboman-60">Minboman</div><div class="option" data-selectable="" data-value="quarter-Minboman et mendong-61">Minboman et mendong</div><div class="option" data-selectable="" data-value="quarter-Mokundange-30">Mokundange</div><div class="option" data-selectable="" data-value="quarter-Molyko-12">Molyko</div><div class="option" data-selectable="" data-value="quarter-Muea-51">Muea</div><div class="option" data-selectable="" data-value="quarter-New Town-29">New Town</div><div class="option" data-selectable="" data-value="quarter-Ngoussou-32">Ngoussou</div><div class="option" data-selectable="" data-value="quarter-Nkamlikum Junction-66">Nkamlikum Junction</div><div class="option" data-selectable="" data-value="quarter-Nkoabang (Lada)-78">Nkoabang (Lada)</div><div class="option" data-selectable="" data-value="quarter-Nkolbissong-53">Nkolbissong</div><div class="option" data-selectable="" data-value="quarter-Pangshi-64">Pangshi</div><div class="option" data-selectable="" data-value="quarter-Paramount - St Clair-14">Paramount - St Clair</div><div class="option" data-selectable="" data-value="quarter-Rail - Bonaberi-42">Rail - Bonaberi</div><div class="option" data-selectable="" data-value="quarter-Sandpit-8">Sandpit</div><div class="option" data-selectable="" data-value="quarter-Santa Barbara-11">Santa Barbara</div><div class="option" data-selectable="" data-value="quarter-Small Soppo-6">Small Soppo</div><div class="option" data-selectable="" data-value="quarter-Sokollo-28">Sokollo</div><div class="option" data-selectable="" data-value="quarter-Sosoliso-13">Sosoliso</div><div class="option" data-selectable="" data-value="quarter-Untarred Malingo-62">Untarred Malingo</div><div class="option" data-selectable="" data-value="quarter-Upper Bolifamba-59">Upper Bolifamba</div><div class="option" data-selectable="" data-value="quarter-Upper Muea (New layout)  -49">Upper Muea (New layout)  </div><div class="option" data-selectable="" data-value="quarter-Winners Chapel-22">Winners Chapel</div></div></div></div></div>
+					</div>
+
+					<div class="mt-2 mb-2">
+						<input class="txt-caps form-control form-control-lg btn btn-primary-rp" type="submit" value="search">
+					</div>
+				</form>
+
+				<p class="mt-2 text-center">
+					<a href="https://digitalrenter.com/fr/upload" class="w-link"> Publier mon annonce </a>
+				</p>
+			</div>
+		</div>
+	</section>
         <div class="text-center">
            <ul>
                     <div class="col-auto mb-4 mb-md-0">
@@ -47,11 +83,13 @@
                                 <div class="card card-body">
                                    <div class="card card-body text-center">
                                        <h1 class="text-center">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!les maisons disponible à louer dans le quartier vont s'afficher!</h1>
-                                        <nav class="navbar navbar-dark bg-dark">
+                                        <nav class="navbar navbar-dark bg-lig">
                                             <div class="container-fluid">
                                               <form class="d-flex">
-                                                <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
-                                                <input class="form-control me-3 btn-success" type="submit" value="SEARCH">
+                                                  <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
+
+                                                 <button class="form-control me-3 btn-success" type="submit" value="SEARCH"><i class="fa fa-search" aria-hidden="true"></i>
+                                                     Rechecher</button>
 
                                               </form>
                                             </div>
@@ -59,11 +97,10 @@
                                     </div>
                                 </div>
 
-                                <h3 class="alert alert-dark border rounded">VOICI LES MAISONS DISPONIBLES POUR LE MOMENT</h3>
-                                <br>
-                                <br>
+                                <h3 class="alert alert-dark border rounded"><i class="fa fa-home" aria-hidden="true"></i>
+                VOICI LES MAISONS DISPONIBLES POUR LE MOMENT</h3>
 
-
+                                <hr>
                                 <div id="maisons" class="col-lg-9 mx-auto">
                                     <div class="row mx-auto">
                                         {% for maison in maisons %}
@@ -71,6 +108,7 @@
                                             <img src="{{maison.photo.url}}" class="img-responsive" alt="....">
                                             <div class="card-body">
                                                 <p><b>{{maison.description}}</b></p>
+                                                <p><b>{{maison.ville}}</b></p>
                                                 <p><b>{{maison.quartier}}</b></p>
                                                 <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-primary">Savoir plus</a></p>
                                             </div>

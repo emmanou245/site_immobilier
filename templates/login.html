@@ -1,6 +1,7 @@
 {% extends 'index.html'%}
 
 {% block content %}
+<h1 class="text-center">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</h1>
 
 <div class="container">
     <h1 class="text-center">BIENVENU SUR LA PAGE SECONNECTER</h1>
@@ -9,7 +10,6 @@
             <h3 class="alert alert-light border rounded">SECONNECTER</h3>
             <form action="/login" method="POST">
                 {%csrf_token%}
-                {{form.as_p}}
                  <!-- Nom -->
                 {% if error%}
                     <div class="alert alert-danger" role="alert">
@@ -19,24 +19,29 @@
 
                 <!-- Nom d'utilisateur -->
                 <div class="form-group">
-                    <label for="user">Nom d'utilisateur</label>
+                    <label for="user"><i class="fa fa-user" aria-hidden="true"></i>
+                Nom d'utilisateur</label>
                     <input type="text" name="username" id="user" value="{{value.username}}"
-                           class="form-control form-control-sm" placeholder="Nom d'utilisateur">
+                           class="form-control form-control" placeholder="Nom d'utilisateur">
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
-                    <label for="Password">Password</label>
+                    <label for="Password"><i class="fa fa-lock" aria-hidden="true"></i>
+                    Password</label>
                     <input type="password" name="password" id="Password"
-                           class="form-control form-control-sm" placeholder="********">
+                           class="form-control form-control" placeholder="********">
                 </div>
                 <!-- SECONNECTER -->
                 <br>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-sm btn-green" value="SECONNECTER">
 
-                    <a class="btn btn-sm btn-secondary" href="signup">S'INSCRIRE</a>
+                    <button type="submit" class="btn btn-sm btn-green" value="SECONNECTER"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                        Seconnecter</button>
+
+                    <a class="btn btn-sm btn-secondary" href="signup"><i class="fa fa-registered" aria-hidden="true"></i>
+                S'Inscrire</a>
                 </div>
             </form>
         </div>

@@ -72,3 +72,5 @@ def detail_maison(request,id_maison):
         commande.save()
     return render(request, 'detail_maison.html', locals())
 
+def appropos(request):
+    return render(request, 'appropos.html')

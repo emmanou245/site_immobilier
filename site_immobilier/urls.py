@@ -27,4 +27,5 @@ urlpatterns = [
     path('login', views.connecter, name='login'),
     path('logout', views.deconnecter, name='logout'),
     path('detail_maison/<str:id_maison>', views.detail_maison, name='detail_maison'),
+    path('appropos', views.appropos, name='appropos'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
