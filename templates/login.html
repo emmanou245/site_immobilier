@@ -1,15 +1,38 @@
 {% extends 'index.html'%}
-
 {% block content %}
-<h1 class="text-center">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</h1>
 
 <div class="container">
-    <h1 class="text-center">BIENVENU SUR LA PAGE SECONNECTER</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <h1 class="alert alert-info p-4 text-center">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</h1>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="form-group">
+                <h3 class="alert alert-info p-4 text-small">Si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve</h3>
+            </div>
+        </div>
+        <br>
+        <div class="col-6">
+            <div class="form-group">
+                <h3 class="alert alert-info p-4 text-small">Sinons cliquez juste sur le bouton s'inscrire qui est dans le formulaire ou sur le bouton creer_compte qui est en haut pour creer un compte dans notre plate-forme avant de seconnecter! </h3>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="col-center">
+        <div class="form-group-center">
+            <h2 class="alert alert-info p-4 text-center">FORMULAIRE DE CONNEXION!</h2>
+        </div>
+    </div>
     <div class="p-4 m-4">
         <div class="col-lg-5 mx-auto border rounded pt-4">
             <h3 class="alert alert-light border rounded">SECONNECTER</h3>
             <form action="/login" method="POST">
                 {%csrf_token%}
+
                  <!-- Nom -->
                 {% if error%}
                     <div class="alert alert-danger" role="alert">

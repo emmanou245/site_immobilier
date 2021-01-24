@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-<h1 class="text-center">BIENVENU SUR LA PAGE DE GESTION DETAIL!</h1>
+<h1 class="alert alert-secondary p-4 text-small text-center">BIENVENU SUR LA PAGE DE GESTION DETAIL!</h1>
 <br>
         <div class="row">
             <div class="col-8">
@@ -15,7 +15,7 @@
                 </div>
                 <br>
                 <div class="card card-body">
-                <h4 class="text-center"> Informations Sur La Maison:</h4>
+                <h4 class="alert alert-secondary p-4 text-small text-center"> Informations Sur La Maison:</h4>
                 <hr>
                 <table class="table table-sm">
                     <tr>
@@ -46,7 +46,7 @@
 
             <div class="col-4">
                 <div class="card card-body">
-                <h5 class="text-center"> Si vous etes intéressé par le propriété veuillez remplir le formulaire si dessous et envoyé!:</h5>
+                <h5 class="alert alert-secondary p-4 text-small"> Si vous etes intéressé par le propriété veuillez remplir le formulaire si dessous et Lancer!:</h5>
                     <hr>
                     <form action="#" method="POST">
                         {%csrf_token%}
@@ -79,9 +79,12 @@
                     </form>
                     <hr>
                     <div class="form-group">
-                        <p class="alert alert-info p-4 text-small"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou immobilierrenter2021@gmail.com </p>
+                        <p class="alert alert-secondary p-4 text-small"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou immobilierrenter2021@gmail.com </p>
                     </div>
                 </div>
+                <br>
+                 <a  class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
+                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
             </div>
         </div>
 </div>
