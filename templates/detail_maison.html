@@ -2,7 +2,16 @@
 
 {% block content %}
 <div class="container">
-<h1 class="alert alert-secondary p-4 text-small text-center">BIENVENU SUR LA PAGE DE GESTION DETAIL!</h1>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="alert alert-secondary p-4 text-small text-center">BIENVENU SUR LA PAGE DETAIL!</h1>
+        </div>
+        <div class="container-center">
+            <div class="col-12">
+                <h2 class="alert alert-secondary p-4 text-center"> N'oubliez pas de vous deconnecter une fois finir, cliquez juste sur le bouton Deconnexion qui est juste en haut!</h2>
+            </div>
+        </div>
+    </div>
 <br>
         <div class="row">
             <div class="col-8">
@@ -46,7 +55,7 @@
 
             <div class="col-4">
                 <div class="card card-body">
-                <h5 class="alert alert-secondary p-4 text-small"> Si vous etes intéressé par le propriété veuillez remplir le formulaire si dessous et Lancer!:</h5>
+                <h5 class="alert alert-secondary p-4 text-small"> Si vous etes intéressé par le propriété veuillez laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez!</h5>
                     <hr>
                     <form action="#" method="POST">
                         {%csrf_token%}
@@ -59,7 +68,7 @@
                             <textarea name="message"
                                       id="Description"
                                       class="form-control form-control"
-                                      placeholder="Ecrire un message au propriétaire"></textarea>
+                                      placeholder="Laisser un message au propriétaire"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -79,7 +88,7 @@
                     </form>
                     <hr>
                     <div class="form-group">
-                        <p class="alert alert-secondary p-4 text-small"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou immobilierrenter2021@gmail.com </p>
+                        <p class="alert alert-secondary p-4 text-small"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com </p>
                     </div>
                 </div>
                 <br>
