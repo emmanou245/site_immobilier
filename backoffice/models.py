@@ -48,10 +48,23 @@ class Commande(models.Model):
             ('occupé','occupé'))
     maison = models.ForeignKey(Maison, null=True, on_delete=models.CASCADE)
     user = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
-    status = models.CharField(max_length=200, null=True, choices=STATUS)
+    status = models.CharField(max_length=256, null=True, choices=STATUS)
     telephone = models.IntegerField(null=True)
     message = models.TextField(null=True)
     date_creation = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return '{} {}'.format(self.maison,self.user)
+
+class Requette(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
+    ville = models.CharField(max_length=256, null=True)
+    quartier = models.CharField(max_length=256, null=True)
+    message = models.TextField(null=True)
+    telephone = models.IntegerField(null=True)
+    prix = models.IntegerField(null=True)
+
+    def __str__(self):
+        return '{} {}'.format(self.user, self.categorie)
+

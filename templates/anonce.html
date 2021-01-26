@@ -1,0 +1,25 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Pourquoi annoncer sur Property Rented?</h3>
+            <p>Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
+                et de terrains à louer / vendre sur notre plateforme. Qu'il s'agisse d'appartements,
+                de studios, de maisons d'hôtes, de terrains, etc.,
+                P.R vous offre un portail DIRECT vers le monde de milliers de locataires et acheteurs potentiels,
+                le tout depuis le confort de votre téléphone mobile.</p>
+        </div>
+        <div class="col-6">
+            <h3>Devenez propriétaire de votre espace!</h3>
+            <p>Vous avez votre mini page Web; toutes vos annonces sont affichées sur votre page dédiée où les clients
+                peuvent voir toutes vos propriétés vacantes et nous envoyer des messages, nous vous
+                tiendrons informer directement et pour lancer un chat et des visites. En termes de visibilité,
+                vous / votre agence obtenez un excellent classement sur Internet!</p>
+        </div>
+        <a  class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
+                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
+    </div>
+</div>
+{% endblock %}

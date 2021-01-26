@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from backoffice.models import CategorieMaison
 from backoffice.models import Commande
 from backoffice.models import Maison
+from backoffice.models import Requette
 
 # Create your views here.
 def home(request):
@@ -19,8 +20,6 @@ def home(request):
     else:
         maisons = Maison.objects.filter(quartier__icontains=search)
     print(Maison)
-
-
 
     control = {'commandes': commandes, 'users': users, 'maisons': maisons}
     return render(request,'index.html', control)
@@ -74,3 +73,27 @@ def detail_maison(request,id_maison):
 
 def appropos(request):
     return render(request, 'appropos.html')
+
+def requette(request):
+    liste_categories = CategorieMaison.objects.all()
+    if request.method == 'POST':
+        categorie_id = request.POST.get('categorie_id', '')
+        ville = request.POST.get('ville', '')
+        quartier = request.POST.get('quartier', '')
+        message = request.POST.get('message', '')
+        telephone = request.POST.get('telephone', '')
+        requette = Requette()
+        categorie = CategorieMaison.objects.get(id=categorie_id)
+        requette.categorie = categorie
+        requette.ville = ville
+        requette.quartier = quartier
+        requette.message = message
+        requette.telephone = telephone
+        requette.user = request.user
+        requette.save()
+        return redirect('/')
+    return render(request, 'requette.html',locals())
+
+def anonce(request):
+
+    return render(request,'anonce.html')
