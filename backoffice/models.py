@@ -29,7 +29,7 @@ class Maison(models.Model):
 
 
     def __str__(self):
-        return '{} {} {}'.format(self.categorie,self.ville,self.quartier)
+        return '{} {} {}'.format(self.categorie,self.ville,self.quartier,self.prix)
 
     @staticmethod
     def get_all_maisons():
@@ -59,12 +59,20 @@ class Commande(models.Model):
 class Requette(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
+    nombre_chambre = models.IntegerField(null=True)
     ville = models.CharField(max_length=256, null=True)
     quartier = models.CharField(max_length=256, null=True)
     message = models.TextField(null=True)
     telephone = models.IntegerField(null=True)
-    prix = models.IntegerField(null=True)
+    prix = models.FloatField(null=True)
 
     def __str__(self):
         return '{} {}'.format(self.user, self.categorie)
+
+class Message(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    message = models.TextField(null=True)
+    telephone = models.IntegerField(null=True)
+    def __str__(self):
+        return '{} {}'.format(self.user, self.telephone)
 

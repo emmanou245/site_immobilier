@@ -18,8 +18,100 @@
                 tiendrons informer directement et pour lancer un chat et des visites. En termes de visibilité,
                 vous / votre agence obtenez un excellent classement sur Internet!</p>
         </div>
+    </div>
+
+</div>
+<hr>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12 alert alert-info text-center">
+            <div class="form-group">
+                <a class="form-control form-control btn-primary btn-block" href="ajouter_maison">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i> AJOUTER UNE MAISON</a>
+            </div>
+
+        </div>
+
+        <div class="col-12">
+            <div class="alert alert-info p-4 text-center">
+                <h1 class="text-center">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!</h1>
+                    <div class="container-fluid">
+                        <form class="d-flex">
+                            <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
+
+                            <button class="form-control me-3 btn-primary" type="submit" value="SEARCH"><i class="fa fa-search" aria-hidden="true"></i>
+                                Rechecher</button>
+
+                        </form>
+                    </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="col-12">
+            <div id="maisons">
+               <div class="row mx-auto">
+                   {% for maison in maisons %}
+                   <div class="card mx-auto mb-3" style="width: 18rem;">
+                        {% if maison.photo %}
+                            <img src="{{maison.photo.url}}" class="progressive-image img-fluid w-100 progressive-image-4"   alt="....">
+                        {% endif %}
+                       <div class="card-body">
+                           <p><b>{{maison.description}}</b></p>
+                           <p><b>{{maison.ville}}</b></p>
+                           <p><b>{{maison.quartier}}</b></p>
+                           <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-primary">Savoir plus</a></p>
+                       </div>
+                   </div>
+                   {% endfor %}
+
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+<div class="container-fluid mt-3">
+    <div class="col-12">
+        <div class="card card-body">
+            <h5 class="alert alert-secondary p-4 text-center"> Une fois finir de poster vos anonce veuillez nos laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez dès que possible!</h5>
+            <hr>
+            <form action="#" method="POST">
+                {%csrf_token%}
+                <!-- Message -->
+                <div class="form-group">
+
+                    <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
+                        Message</label>
+                    <textarea name="message"
+                              id="Description"
+                              class="form-control form-control"
+                              placeholder="Laisser un message au propriétaire"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
+                        telephone</label>
+                    <input type="tel" name="telephone" id="telephone"
+                           class="form-control form-control" placeholder="exemple:65865412">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Lancer Le Message</button>
+                </div>
+            </form>
+            <hr>
+            <div class="form-group">
+                <p class="alert alert-secondary p-4 text-center"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com </p>
+            </div>
+        </div>
         <a  class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
-                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
     </div>
 </div>
 {% endblock %}

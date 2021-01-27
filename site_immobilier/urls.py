@@ -30,4 +30,5 @@ urlpatterns = [
     path('appropos', views.appropos, name='appropos'),
     path('requette', views.requette, name='requette'),
     path('anonce', views.anonce, name='anonce'),
+    path('ajouter_maison', views.ajouter_maison, name='ajouter_maison'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

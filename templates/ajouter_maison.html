@@ -1,0 +1,116 @@
+{% extends 'index.html'%}
+
+{% block content%}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-7 mx-auto border rounded pt-4">
+            <div class="form-group">
+                <h5 class="alert alert-info p-4 text-small text-center">Ajouter votre anonce ici!</h5>
+            </div>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+
+                {% if error%}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
+                 <!-- Categorie -->
+                <div class="form-control form-control btn-light btn-block">
+                    <label>
+                        Choissisez La Categorie
+                    </label>
+
+                    <select name="categorie_id">
+                        {%for categorie in liste_categories%}
+                            <option value="{{categorie.id}}">{{categorie.nom}}</option>
+                        {%endfor%}
+                    </select>
+
+
+                </div>
+                <br>
+                <!-- Nombre des chambres -->
+                <div class="form-group">
+                    <label for="Nombre_chambres">Nombre des chambres</label>
+                    <input required type="number" name="nombre_chambre" id="Nombre_chambres"
+                           class="form-control form-control btn-light" placeholder="Nombre des chambres">
+                </div>
+                <br>
+                 <!-- photo de la personne -->
+                <div class="form-group">
+                        <label for="Photo">Photo de la maison</label>
+                        <input type="file" name="photo" id="Photo"
+                               class="form-control form-control-sm" placeholder="Photo de la personne">
+                </div>
+
+                 <!-- Description -->
+                <div class="form-group">
+
+                        <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
+                            Description</label>
+                        <textarea name="description"
+                                      id="Description"
+                                      class="form-control form-control btn-light"
+                                      placeholder="Veuillez decrire votre propriété!"></textarea>
+                </div>
+
+                <br>
+                <!-- Prix -->
+                <div class="form-group">
+                    <label for="Prix">Prix</label>
+                    <input required type="number" name="prix" id="Prix"
+                           class="form-control form-control btn-light" placeholder="Le prix">
+                </div>
+                 <br>
+                  <br>
+                <!-- Quartier -->
+                <div class="form-group">
+                    <label for="Quartier">Quartier</label>
+                    <input required type="text" name="quartier" id="Quartier"
+                           class="form-control form-control btn-light" placeholder="Le nom du quartier">
+                </div>
+
+                <br>
+                <!-- Ville -->
+                <div class="form-group">
+                    <label for="Ville">Ville</label>
+                    <input required type="text" name="ville" id="Ville"
+                           class="form-control form-control btn-light" placeholder="Entrer le nom de la ville ou votre maison se trouve!">
+                </div>
+                <br>
+                <!-- depot_initial -->
+                <div class="form-group">
+                    <label for="Depot_initial">Depot initial</label>
+                    <input required type="text" name="depot_initial" id="Depot_initial"
+                           class="form-control form-control btn-light" placeholder="Avant de regagner votre maison le laucateur doit payer combien de mois!">
+                </div>
+
+                <br>
+                <!-- Caution -->
+                <div class="form-group">
+                    <label for="Caution">Caution</label>
+                    <input required type="number" name="caution" id="Caution"
+                           class="form-control form-control btn-light" placeholder="Entrer la caution!">
+                </div>
+
+                <br>
+                <!-- Disponibilite -->
+                <div class="form-group">
+                    <label for="Disponibilite">Disponibilité</label>
+                    <input required type="date" name="disponibilite" id="Disponibilite"
+                           class="form-control form-control btn-light" placeholder="La date a laquelle vous mettez votre maison en ligne!">
+                </div>
+
+                <!-- CreateAcount -->
+                <br>
+
+                <div class="form-group">
+                    <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Lancer La Demande</button>
+                </div>
+            </form>
+        </div>
+     </div>
+</div>
+{% endblock %}

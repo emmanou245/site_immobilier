@@ -13,6 +13,7 @@
             </div>
             <form action="#" method="POST">
                 {%csrf_token%}
+
                 {% if error%}
                     <div class="alert alert-danger" role="alert">
                         {{error}}
@@ -31,6 +32,13 @@
                     </select>
 
 
+                </div>
+                <br>
+                <!-- Nombre des chambres -->
+                <div class="form-group">
+                    <label for="Nombre_chambres">Nombre des chambres</label>
+                    <input required type="number" name="nombre_chambre" id="Nombre_chambres"
+                           class="form-control form-control btn-light" placeholder="Nombre des chambres">
                 </div>
                 <br>
                 <!-- Ville -->
@@ -65,7 +73,7 @@
                 <!-- Password -->
                 <div class="form-group">
                     <label for="Prix">Prix</label>
-                    <input required type="int" name="prix" id="Prix"
+                    <input required type="number" name="prix" id="Prix"
                            class="form-control form-control btn-light" placeholder="Le prix">
                 </div>
                 <!-- CreateAcount -->

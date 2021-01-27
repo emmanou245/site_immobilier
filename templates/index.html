@@ -54,7 +54,6 @@
                 <div class="col-6">
                     <div class="alert alert-info p-4 text-center">
                         <h1 class="text-center">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!</h1>
-                        <nav class="navbar navbar-dark bg-lig">
                             <div class="container-fluid">
                                 <form class="d-flex">
                                     <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
@@ -64,7 +63,6 @@
 
                                 </form>
                             </div>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -80,8 +78,10 @@
                     <div id="maisons" class="col-12 mx-auto">
                         <div class="row mx-auto">
                             {% for maison in maisons %}
-                            <div class="card mx-auto mb-3 text-center" style="width: 18rem;">
-                                <img src="{{maison.photo.url}}" class="img-responsive" alt="....">
+                            <div class="card mx-auto mb-3" style="width: 18rem;">
+                                {% if maison.photo%}
+                                    <img src="{{maison.photo.url}}" class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
+                                {% endif %}
                                 <div class="card-body">
                                     <p><b>{{maison.description}}</b></p>
                                     <p><b>{{maison.ville}}</b></p>
