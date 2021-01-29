@@ -14,9 +14,11 @@ class CategorieMaison(models.Model):
         return '{}'.format(self.nom)
 
 class Maison(models.Model):
+    user = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
     categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
+    visibilite = models.BooleanField(default=False)
     nombre_chambre = models.IntegerField(null=True)
-    photo = models.ImageField(upload_to='media/images/', null=True, blank=True)
+    image = models.FileField(blank=True,null=True)
     description = models.TextField(null=True)
     prix = models.FloatField(null=True)
     quartier = models.CharField(max_length=256,null=True)
@@ -26,21 +28,15 @@ class Maison(models.Model):
     disponibilite = models.DateTimeField(null=True)
     #location = PointField(null=True,dim=2)
     date_creation = models.DateTimeField(auto_now_add=True, null=True)
-
-
     def __str__(self):
-        return '{} {} {}'.format(self.categorie,self.ville,self.quartier,self.prix)
+        return '{} de {} {} {}'.format(self.categorie,self.user,self.ville,self.quartier,self.prix)
 
-    @staticmethod
-    def get_all_maisons():
-        return Maison.objects.all()
+class Images(models.Model):
+    maison = models.ForeignKey(Maison, null=True, on_delete=models.CASCADE,default=None)
+    images = models.FileField(upload_to='images/',null=True)
+    def __str__(self):
+        return "{} {}".format(self.maison.categorie,self.maison.ville)
 
-    @staticmethod
-    def get_all_maison_by_categoriesid(categorie_id):
-        if categorie_id:
-            return Maison.objects.filter(categorie=categorie_id)
-        else:
-            return Maison.get_all_maisons();
 
 class Commande(models.Model):
     STATUS = (('en instance','en instance'),
@@ -55,6 +51,7 @@ class Commande(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.maison,self.user)
+
 
 class Requette(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
@@ -75,4 +72,5 @@ class Message(models.Model):
     telephone = models.IntegerField(null=True)
     def __str__(self):
         return '{} {}'.format(self.user, self.telephone)
+
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from backoffice.models import CategorieMaison
@@ -6,6 +6,7 @@ from backoffice.models import Commande
 from backoffice.models import Maison
 from backoffice.models import Requette
 from backoffice.models import Message
+from backoffice.models import Images
 
 # Create your views here.
 def home(request):
@@ -17,9 +18,9 @@ def home(request):
     commandes = Commande.objects.all()
     users = User.objects.all()
     if search == None:
-        maisons = Maison.objects.all()
+        maisons = Maison.objects.filter(visibilite=True)
     else:
-        maisons = Maison.objects.filter(quartier__icontains=search)
+        maisons = Maison.objects.filter(quartier__icontains=search, visibilite=True)
     print(Maison)
 
     control = {'commandes': commandes, 'users': users, 'maisons': maisons}
@@ -60,7 +61,8 @@ def deconnecter(request):
     return redirect('login')
 
 def detail_maison(request,id_maison):
-    maison = Maison.objects.get(id=id_maison)
+    maison = get_object_or_404(Maison, id=id_maison)
+    photos = Images.objects.filter(maison=maison)
     if request.method == 'POST':
         telephone = request.POST.get('telephone', '')
         message = request.POST.get('message','')
@@ -73,9 +75,13 @@ def detail_maison(request,id_maison):
     return render(request, 'detail_maison.html', locals())
 
 def appropos(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     return render(request, 'appropos.html')
 
 def requette(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     liste_categories = CategorieMaison.objects.all()
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
@@ -100,15 +106,17 @@ def requette(request):
     return render(request, 'requette.html',locals())
 
 def anonce(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     search = request.GET.get('Search')
     maisons = []
     print(search)
     messages = Message.objects.all()
     users = User.objects.all()
     if search == None:
-        maisons = Maison.objects.all()
+        maisons = Maison.objects.filter(visibilite=True)
     else:
-        maisons = Maison.objects.filter(quartier__icontains=search)
+        maisons = Maison.objects.filter(quartier__icontains=search,visibilite=True)
     print(Maison)
     if request.method == 'POST':
         telephone = request.POST.get('telephone', '')
@@ -127,7 +135,7 @@ def ajouter_maison(request):
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
         nombre_chambre = request.POST.get('nombre_chambre', '')
-        photo = request.FILES.get('photo', '')
+        image = request.FILES.get('image', '')
         description = request.POST.get('description', '')
         prix = request.POST.get('prix', '')
         quartier = request.POST.get('quartier', '')
@@ -139,7 +147,7 @@ def ajouter_maison(request):
         categorie = CategorieMaison.objects.get(id=categorie_id)
         maison.categorie = categorie
         maison.nombre_chambre = nombre_chambre
-        maison.photo = photo
+        maison.image = image
         maison.description = description
         maison.prix = prix
         maison.quartier = quartier

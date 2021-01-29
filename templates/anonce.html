@@ -4,19 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h3>Pourquoi annoncer sur Property Rented?</h3>
-            <p>Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
+            <h3> Pourquoi annoncer sur Property Rented?</h3>
+            <p  class="alert alert-info p-4 text-center"><strong style="color:red">Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
                 et de terrains à louer / vendre sur notre plateforme. Qu'il s'agisse d'appartements,
                 de studios, de maisons d'hôtes, de terrains, etc.,
                 P.R vous offre un portail DIRECT vers le monde de milliers de locataires et acheteurs potentiels,
-                le tout depuis le confort de votre téléphone mobile.</p>
+                le tout depuis le confort de votre téléphone mobile.</strong></p>
         </div>
         <div class="col-6">
             <h3>Devenez propriétaire de votre espace!</h3>
-            <p>Vous avez votre mini page Web; toutes vos annonces sont affichées sur votre page dédiée où les clients
+            <p  class="alert alert-info p-4 text-center"><strong style="color:red">Vous avez votre mini page Web; toutes vos annonces sont affichées sur votre page dédiée où les clients
                 peuvent voir toutes vos propriétés vacantes et nous envoyer des messages, nous vous
                 tiendrons informer directement et pour lancer un chat et des visites. En termes de visibilité,
-                vous / votre agence obtenez un excellent classement sur Internet!</p>
+                vous / votre agence obtenez un excellent classement sur Internet!</strong></p>
         </div>
     </div>
 
@@ -49,26 +49,28 @@
         </div>
 
         <hr>
-        <div class="col-12">
-            <div id="maisons">
-               <div class="row mx-auto">
-                   {% for maison in maisons %}
-                   <div class="card mx-auto mb-3" style="width: 18rem;">
-                        {% if maison.photo %}
-                            <img src="{{maison.photo.url}}" class="progressive-image img-fluid w-100 progressive-image-4"   alt="....">
-                        {% endif %}
-                       <div class="card-body">
-                           <p><b>{{maison.description}}</b></p>
-                           <p><b>{{maison.ville}}</b></p>
-                           <p><b>{{maison.quartier}}</b></p>
-                           <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-primary">Savoir plus</a></p>
-                       </div>
+       <div id="maisons" class="col-12 mx-auto">
+           <div class="row mx-auto">
+               {% for maison in maisons %}
+               <div class="card mx-auto mb-3" style="width: 18rem;">
+                   <div class="view overlay">
+                       {% if maison.image%}
+                       <img src="{{maison.image.url}}" class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
+                       {% endif %}
+                       <a href="#!">
+                           <div class="mask rgba-white-slight"></div>
+                       </a>
                    </div>
-                   {% endfor %}
-
+                   <div class="card-body text-center">
+                       <p><b>{{maison.description}}</b></p>
+                       <p><b>{{maison.ville}}</b></p>
+                       <p><b>{{maison.quartier}}</b></p>
+                       <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-primary">Savoir plus</a></p>
+                   </div>
                </div>
+               {% endfor %}
            </div>
-        </div>
+       </div>
     </div>
 </div>
 </div>
@@ -76,7 +78,7 @@
 <div class="container-fluid mt-3">
     <div class="col-12">
         <div class="card card-body">
-            <h5 class="alert alert-secondary p-4 text-center"> Une fois finir de poster vos anonce veuillez nos laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez dès que possible!</h5>
+            <h5 class="alert alert-secondary p-4 text-center"><strong style="color:red"> Une fois finir de poster vos anonce! vous pouvez nous laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez dès que possible!</strong></h5>
             <hr>
             <form action="#" method="POST">
                 {%csrf_token%}
@@ -107,11 +109,12 @@
             </form>
             <hr>
             <div class="form-group">
-                <p class="alert alert-secondary p-4 text-center"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com </p>
+                <p class="alert alert-secondary p-4 text-center"><strong style="color:red"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com</strong></p>
             </div>
         </div>
         <a  class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
     </div>
+    <br>
 </div>
 {% endblock %}
