@@ -35,7 +35,8 @@
 
         <div class="col-12">
             <div class="alert alert-info p-4 text-center">
-                <h1 class="text-center">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!</h1>
+                <h1 class="text-center"> <strong style="color:blue">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!Si y'a des maisons vacantes dans le secteur vous l'auriez!
+                </strong></h1>
                     <div class="container-fluid">
                         <form class="d-flex">
                             <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
@@ -65,7 +66,7 @@
                        <p><b>{{maison.description}}</b></p>
                        <p><b>{{maison.ville}}</b></p>
                        <p><b>{{maison.quartier}}</b></p>
-                       <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-primary">Savoir plus</a></p>
+                       <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-outline-primary">Savoir plus</a></p>
                    </div>
                </div>
                {% endfor %}

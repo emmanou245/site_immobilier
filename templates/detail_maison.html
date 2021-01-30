@@ -3,127 +3,130 @@
 {% block content %}
 <div class="container-fluid mt-3">
 <!--Carousel Wrapper-->
-    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-slide="next">
-        <div class="row carousel-inner">
-            <div class="col-12">
-                <h1 class="alert alert-info p-4 text-small text-center">BIENVENU SUR LA PAGE DETAIL!</h1>
-            </div>
-            <div class="container-center">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="row">
                 <div class="col-12">
-                    <h2 class="alert alert-info p-4 text-center"> N'oubliez pas de vous deconnecter une fois finir, cliquez
-                        juste sur le bouton Deconnexion qui est juste en haut!</h2>
+                    <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">BIENVENU SUR LA PAGE DETAIL!</strong></h1>
+                </div>
+                <div class="container-center">
+                    <div class="col-12">
+                        <h2 class="alert alert-info p-4 text-center"><strong style="color:blue"> N'oubliez pas de vous deconnecter une fois finir, cliquez
+                                juste sur le bouton Deconnexion qui est juste en haut!</strong></h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="row carousel-inner">
-            <ul class="carousel-indicators">
+            <br>
+            <ol class="carousel-indicators">
                 {% for p in photos %}
                 <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}"
                     class="{% if forloop.counter0 == 0 %}
-                    active {% endif %}">
+                       active {% endif %}">
                 </li>
                 {% endfor %}
-            </ul>
-            <div class="col-7">
-                <div class="card card-body">
-                    <h5 class="alert alert-info p-4 text-small">
-                        <i class="fa fa-home" aria-hidden="true"></i><strong style="color:red"> Maison:
-                    </strong></h5>
-                    <hr>
-                    {% for p in photos %}
-                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                        <img src="{{p.images.url}}" class="progressive-image img-fluid w-100 progressive-image-4"
-                             alt="....">
+            </ol>
+            <div class="row">
+                <div class="col-7">
+                    <div class="card card-body">
+                        <h5 class="alert alert-info p-4 text-small">
+                            <i class="fa fa-home" aria-hidden="true"></i><strong style="color:red"> Maison:
+                        </strong></h5>
+                        <hr>
+                        {% for p in photos %}
+                        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                            <img src="{{p.images.url}}" class="progressive-image img-fluid w-100 progressive-image-4"
+                                 alt="....">
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
-                <br>
-                <div class="card card-body">
-                    <h4 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Informations Sur La Maison:</strong></h4>
-                    <hr>
-                    <table class="table table-sm">
-                        <tr>
-                            <th> Categorie</th>
-                            <th> Chambres</th>
-                            <th> Prix</th>
-                            <th> Dépôt initial</th>
-                            <th> Caution</th>
-                            <th> Disponibilité vérifié dernierement</th>
-                            <th> Ville</th>
-                            <th> Quartier</th>
-                        </tr>
+                    <br>
+                    <div class="card card-body">
+                        <h4 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Informations Sur La Maison:</strong></h4>
+                        <hr>
+                        <table class="table table-sm">
+                            <tr>
+                                <th> Categorie</th>
+                                <th> Chambres</th>
+                                <th> Prix</th>
+                                <th> Dépôt initial</th>
+                                <th> Caution</th>
+                                <th> Disponibilité vérifié dernierement</th>
+                                <th> Ville</th>
+                                <th> Quartier</th>
+                            </tr>
 
-                        <tr>
-                            <th> {{maison.categorie}}</th>
-                            <th> {{maison.nombre_chambre}}</th>
-                            <th> {{maison.prix}}</th>
-                            <th> {{maison.depot_initial}}</th>
-                            <th> {{maison.caution}}</th>
-                            <th> {{maison.disponibilite}}</th>
-                            <th> {{maison.ville}}</th>
-                            <th> {{maison.quartier}}</th>
-                        </tr>
-                    </table>
+                            <tr>
+                                <th> {{maison.categorie}}</th>
+                                <th> {{maison.nombre_chambre}}</th>
+                                <th> {{maison.prix}}</th>
+                                <th> {{maison.depot_initial}}</th>
+                                <th> {{maison.caution}}</th>
+                                <th> {{maison.disponibilite}}</th>
+                                <th> {{maison.ville}}</th>
+                                <th> {{maison.quartier}}</th>
+                            </tr>
+                        </table>
 
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="card card-body">
-                    <h5 class="alert alert-info p-4 text-center"><strong style="color:red"> Si vous etes intéressé par le propriété veuillez laisser un
-                        message avec votre numero de telephone fonctionnel!nous allons vous contactez!</strong></h5>
-                    <hr>
-                    <form action="#" method="POST">
-                        {%csrf_token%}
-                        <!-- Nom -->
-                        <!-- Category -->
-                        <div class="form-group">
-                            <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
-                                Message</label>
-                            <textarea name="message"
-                                      id="Description"
-                                      class="form-control form-control"
-                                      placeholder="Laisser un message au propriétaire"></textarea>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
-                                telephone</label>
-                            <input type="tel" name="telephone" id="telephone"
-                                   class="form-control form-control" placeholder="exemple:65865412">
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                            <button class="form-control form-control btn-primary btn-block" type="submit"><i
-                                    class="fa fa-paper-plane" aria-hidden="true"></i>
-                                Lancer La Demande
-                            </button>
-                        </div>
-                    </form>
-                    <hr>
-                    <div class="form-group text-center">
-                        <p class="alert alert-info p-4 text-small"><strong style="color:red"> Si vous avez des inquiétudes, contactez-nous via
-                            +237693122144 ou propertyrented2021@gmail.com </strong></p>
                     </div>
-
                 </div>
-                <br>
-                <a class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
+                <div class="col-5">
+                    <div class="card card-body">
+                        <h5 class="alert alert-info p-4 text-center"><strong style="color:red"> Si vous etes intéressé par le
+                            propriété veuillez laisser un
+                            message avec votre numero de telephone fonctionnel!nous allons vous contactez!</strong></h5>
+                        <hr>
+                        <form action="#" method="POST">
+                            {%csrf_token%}
+                            <!-- Nom -->
+                            <!-- Category -->
+                            <div class="form-group">
+                                <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
+                                    Message</label>
+                                <textarea name="message"
+                                          id="Description"
+                                          class="form-control form-control"
+                                          placeholder="Laisser un message au propriétaire"></textarea>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
+                                    telephone</label>
+                                <input type="tel" name="telephone" id="telephone"
+                                       class="form-control form-control" placeholder="exemple:65865412">
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                <button class="form-control form-control btn-primary btn-block" type="submit"><i
+                                        class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    Lancer La Demande
+                                </button>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="form-group text-center">
+                            <p class="alert alert-info p-4 text-small"><strong style="color:red"> Si vous avez des inquiétudes,
+                                contactez-nous via
+                                +237693122144 ou propertyrented2021@gmail.com </strong></p>
+                        </div>
+
+                    </div>
+                    <br>
+                    <a class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
+                </div>
             </div>
             <!--/First slide-->
             <!--/.Slides-->
             <!--Controls-->
-            <div class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
-            </div>
-            <div class="carousel-control" href="#carousel-example-1z" role="button" data-slide="next">
+            </a>
+            <a class="carousel-control" href="#carousel-example-1z" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </div>
-        </div>
+            </a>
+
     </div>
 </div>
 {% endblock %}

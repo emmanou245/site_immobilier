@@ -7,6 +7,7 @@ from backoffice.models import Maison
 from backoffice.models import Requette
 from backoffice.models import Message
 from backoffice.models import Images
+import folium
 
 # Create your views here.
 def home(request):
@@ -159,3 +160,19 @@ def ajouter_maison(request):
         maison.save()
         return redirect('anonce')
     return render(request, 'ajouter_maison.html',locals())
+
+def error403(request):
+    dhb_context = {'messageErr': 'CETTE RESSOURCE REQUIèRE UNE AUTHENTIFICATION !'}
+    return render(request, "administrator/error-403.html", dhb_context)
+
+def search(request):
+    if request.user.is_authenticated:
+
+        query = request.GET["search"]
+        result_object = Maison.objects.filter(name_sch__icontains=query)
+        # result_object = result_object.append(School.objects.filter(system_sch__icontains=query))
+        rst_srh_context = {'title': 'RESULTATS DE LA RECHERCHE LIEE A : ' + query, 'result_object': result_object}
+        return render(request, 'search_resul.html', rst_srh_context)
+    else:
+        return redirect(error403)
+

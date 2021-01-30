@@ -2,10 +2,11 @@
 
 {% block content%}
 <div class="container">
+     <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">FORMULAIRE D'AJOUT D'UNE ANNONCE!</strong></h1>
     <div class="p-4 m-4">
         <div class="col-lg-7 mx-auto border rounded pt-4">
             <div class="form-group">
-                <h5 class="alert alert-info p-4 text-small text-center">Ajouter votre anonce ici!</h5>
+                <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Ajouter votre annonce ici!</strong></h5>
             </div>
             <form action="#" method="POST" enctype="multipart/form-data">
                 {%csrf_token%}

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group">
-                <h1 class="alert alert-info p-4 text-center">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</h1>
+                <h1 class="alert alert-info p-4 text-center"><strong style="color:blue">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h1>
             </div>
         </div>
         <div class="col-5">
@@ -22,13 +22,13 @@
     <div class="container-center">
         <div class="col-12">
             <div class="form-group">
-                <h2 class="alert alert-info p-4 text-center">FORMULAIRE DE CONNEXION!</h2>
+                <h2 class="alert alert-info p-4 text-center"><strong style="color:blue">FORMULAIRE DE CONNEXION!</strong></h2>
             </div>
         </div>
     </div>
     <div class="p-4 m-4">
         <div class="col-lg-5 mx-auto border rounded pt-4">
-            <h3 class="alert alert-light border rounded">SECONNECTER</h3>
+            <h3 class="alert alert-light border rounded text-center"><strong style="color:red">SECONNECTER</strong></h3>
             <form action="/login" method="POST">
                 {%csrf_token%}
 
@@ -40,30 +40,30 @@
                 {% endif %}
 
                 <!-- Nom d'utilisateur -->
-                <div class="form-group">
-                    <label for="user"><i class="fa fa-user" aria-hidden="true"></i>
-                Nom d'utilisateur</label>
-                    <input type="text" name="username" id="user" value="{{value.username}}"
-                           class="form-control form-control" placeholder="Nom d'utilisateur">
-                </div>
+                 <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                     </div>
+                     <input name="username" type="text" class="form-control form-control-lg"
+                            placeholder="Nom d'utilisateur ou Email" aria-label="username" aria-describedby="basic-addon1"
+                            required value="{{username}}">
+                 </div>
 
                 <!-- Password -->
-                <div class="form-group">
-                    <label for="Password"><i class="fa fa-lock" aria-hidden="true"></i>
-                    Password</label>
-                    <input type="password" name="password" id="Password"
-                           class="form-control form-control" placeholder="********">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                    </div>
+                    <input name="password" type="password" class="form-control form-control-lg"
+                           placeholder="Mot de passe" aria-label="password" aria-describedby="basic-addon1"
+                           required maxLength="256" minLength="4">
                 </div>
                 <!-- SECONNECTER -->
                 <br>
-
-                <div class="form-group">
-
-                    <button type="submit" class="btn btn-sm btn-green" value="SECONNECTER"><i class="fa fa-sign-in" aria-hidden="true"></i>
-                        Seconnecter</button>
-
-                    <a class="btn btn-sm btn-secondary" href="signup"><i class="fa fa-registered" aria-hidden="true"></i>
-                S'Inscrire</a>
+                <div class="input-group-prepend">
+                    <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5 col-md-5"></i> Mot de passe oublié ?</button>
+                    <a class="btn btn-warning" id="to-" type=""><i class="fa fa-clock m-r-1 col-md-1"></i> </a>
+                    <button class="btn btn-success float-right" type="submit">Login</button>
                 </div>
             </form>
         </div>
