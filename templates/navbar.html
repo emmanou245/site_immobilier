@@ -179,22 +179,20 @@
                                 {%if not user.is_authenticated%}
                                     <a class="dropdown-item" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>
                                         <strong style="color:blue">Seconnecter</strong></a>
-                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{% url 'signup'%}"><i class="fa fa-registered" aria-hidden="true"></i>
                                         <strong style="color:blue">Creer_compte</strong></a>
                                 {% endif %}
                                 {%if user.is_authenticated%}
-                                      <a class="dropdown-item"><i class="fa fa-user-circle" aria-hidden="true"></i>
-                         {{user.username}}</a>
-                                    <form class="form-inline my-2 my-lg-0" action="{% url 'logout' %}" method="POST">
+                                <a class="dropdown-item"><i class="fa fa-user-circle" aria-hidden="true"></i><strong style="color:red">{{user.username}}</strong></a>
+                                    <form class="form-inline my-2 my-lg-0" action="/logout" method="POST">
                                       {% csrf_token %}
-                                      <a class="dropdown-item" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i>
-                                          <strong style="color:blue">Deconnexion</strong></a>
+                                        <button class="dropdown-item" type="submit"><i class="fa fa-power-off" aria-hidden="true"></i>
+                                        <strong style="color:blue">Deconnexion</strong></button>
                                     </form>
                                 {% endif %}
                                 <div class="dropdown-divider"></div>
-                                <a class="alert alert-info border rounded" aria-current="page" href="appropos">
-                  <strong style="color:blue">A-propos</strong></a>
+                                <a class="dropdown-item" aria-current="page" href="appropos"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <strong style="color:blue">A-propos</strong></a>
                                 <div class="dropdown-divider"></div>
 
                                 <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded"> <strong style="color:blue">View Profile</strong></a></div>

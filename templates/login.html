@@ -1,20 +1,20 @@
 {% extends 'index.html'%}
 {% block content %}
 
-<div class="container">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-12">
             <div class="form-group">
-                <h1 class="alert alert-info p-4 text-center"><strong style="color:blue">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h1>
+                <h2 class="alert alert-info p-4 text-center"><strong style="color:blue">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h2>
             </div>
         </div>
         <div class="col-5">
-            <h3><strong style="color:red"> Si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve</strong></h3>
+            <h5><strong style="color:red"> Si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve!</strong></h5>
 
         </div>
         <br>
         <div class="col-6">
-            <h3><strong style="color:red">Sinons cliquez juste sur le bouton s'inscrire qui est dans le formulaire ou sur le bouton creer_compte qui est en haut pour creer un compte dans notre plate-forme avant de seconnecter!</strong></h3>
+            <h5><strong style="color:red">Sinons cliquez juste sur le bouton creer_compte qui est en haut, pour creer un compte dans notre plate-forme avant de vous connectez!</strong></h5>
         </div>
 
     </div>
@@ -22,7 +22,7 @@
     <div class="container-center">
         <div class="col-12">
             <div class="form-group">
-                <h2 class="alert alert-info p-4 text-center"><strong style="color:blue">FORMULAIRE DE CONNEXION!</strong></h2>
+                <h3 class="alert alert-info p-4 text-center"><strong style="color:blue">FORMULAIRE DE CONNEXION!</strong></h3>
             </div>
         </div>
     </div>
@@ -61,9 +61,9 @@
                 <!-- SECONNECTER -->
                 <br>
                 <div class="input-group-prepend">
-                    <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5 col-md-5"></i> Mot de passe oublié ?</button>
+                    <a class="form-control btn-sm btn-primary btn-block" id="to-recover" type="button" href="signup"><i class="fa fa-lock m-r-5 col-md-5"></i> Mot de passe oublié ?</a>
                     <a class="btn btn-warning" id="to-" type=""><i class="fa fa-clock m-r-1 col-md-1"></i> </a>
-                    <button class="btn btn-success float-right" type="submit">Login</button>
+                    <button class="form-control btn btn-sm btn-danger btn-block" type="submit"><i class="fa fa-paper-plane m-r-5 col-md-5" aria-hidden="true"></i> Valider</button>
                 </div>
             </form>
         </div>
