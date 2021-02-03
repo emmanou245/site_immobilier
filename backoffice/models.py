@@ -13,6 +13,17 @@ class CategorieMaison(models.Model):
     def __str__(self):
         return '{}'.format(self.nom)
 
+class Ville(models.Model):
+    nom = models.CharField(max_length=256, null=True)
+
+    def __str__(self):
+        return '{}'.format(self.nom)
+class Quartier(models.Model):
+    nom = models.CharField(max_length=256, null=True)
+
+    def __str__(self):
+        return '{}'.format(self.nom)
+
 class Maison(models.Model):
     user = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
     categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
@@ -21,8 +32,8 @@ class Maison(models.Model):
     image = models.FileField(blank=True,null=True)
     description = models.TextField(null=True)
     prix = models.FloatField(null=True)
-    quartier = models.CharField(max_length=256,null=True)
-    ville = models.CharField(max_length=256, null=True)
+    ville =  models.ForeignKey(Ville,on_delete=models.DO_NOTHING, null=True)
+    quartier =  models.ForeignKey(Quartier,on_delete=models.DO_NOTHING, null=True)
     depot_initial = models.CharField(max_length=256,null=True,blank=True)
     caution = models.FloatField(null=True,blank=True)
     disponibilite = models.DateTimeField(null=True)

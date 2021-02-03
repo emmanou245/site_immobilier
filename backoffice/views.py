@@ -7,7 +7,10 @@ from backoffice.models import Maison
 from backoffice.models import Requette
 from backoffice.models import Message
 from backoffice.models import Images
-import folium
+from backoffice.models import Ville
+from backoffice.models import Quartier
+from django.contrib.auth.hashers import check_password
+#import folium
 
 # Create your views here.
 def home(request):
@@ -55,6 +58,7 @@ def connecter(request):
             login(request,user)
             return redirect('/')
         return redirect('/')
+
     return render(request,'login.html')
 
 def deconnecter(request):
@@ -84,20 +88,24 @@ def requette(request):
     if not request.user.is_authenticated:
         return redirect('login')
     liste_categories = CategorieMaison.objects.all()
+    liste_villes = Ville.objects.all()
+    liste_quartiers = Quartier.objects.all()
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
+        ville_id = request.POST.get('ville_id', '')
+        quartier_id = request.POST.get('quartier_id', '')
         nombre_chambre = request.POST.get('nombre_chambre', '')
-        ville = request.POST.get('ville', '')
-        quartier = request.POST.get('quartier', '')
         message = request.POST.get('message', '')
         telephone = request.POST.get('telephone', '')
         prix = request.POST.get('prix', '')
         requette = Requette()
         categorie = CategorieMaison.objects.get(id=categorie_id)
+        ville = Ville.objects.get(id=ville_id)
+        quartier = Quartier.objects.get(id=quartier_id)
         requette.categorie = categorie
-        requette.nombre_chambre = nombre_chambre
         requette.ville = ville
         requette.quartier = quartier
+        requette.nombre_chambre = nombre_chambre
         requette.message = message
         requette.telephone = telephone
         requette.prix = prix
@@ -117,7 +125,7 @@ def anonce(request):
     if search == None:
         maisons = Maison.objects.filter(visibilite=True)
     else:
-        maisons = Maison.objects.filter(quartier__icontains=search,visibilite=True)
+        maisons = Maison.objects.filter(quartier__nom__icontains=search,visibilite=True)
     print(Maison)
     if request.method == 'POST':
         telephone = request.POST.get('telephone', '')
@@ -133,26 +141,30 @@ def anonce(request):
 
 def ajouter_maison(request):
     liste_categories = CategorieMaison.objects.all()
+    liste_villes = Ville.objects.all()
+    liste_quartiers = Quartier.objects.all()
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
+        ville_id = request.POST.get('ville_id', '')
+        quartier_id = request.POST.get('quartier_id', '')
         nombre_chambre = request.POST.get('nombre_chambre', '')
         image = request.FILES.get('image', '')
         description = request.POST.get('description', '')
         prix = request.POST.get('prix', '')
-        quartier = request.POST.get('quartier', '')
-        ville = request.POST.get('ville', '')
         depot_initial = request.POST.get('depot_initial','')
         caution = request.POST.get('caution','')
         disponibilite = request.POST.get('disponibilite', '')
         maison = Maison()
         categorie = CategorieMaison.objects.get(id=categorie_id)
+        ville = Ville.objects.get(id=ville_id)
+        quartier = Quartier.objects.get(id=quartier_id)
         maison.categorie = categorie
+        maison.ville = ville
+        maison.categorie = quartier
         maison.nombre_chambre = nombre_chambre
         maison.image = image
         maison.description = description
         maison.prix = prix
-        maison.quartier = quartier
-        maison.ville = ville
         maison.depot_initial = depot_initial
         maison.caution = caution
         maison.disponibilite = disponibilite
@@ -160,19 +172,4 @@ def ajouter_maison(request):
         maison.save()
         return redirect('anonce')
     return render(request, 'ajouter_maison.html',locals())
-
-def error403(request):
-    dhb_context = {'messageErr': 'CETTE RESSOURCE REQUIèRE UNE AUTHENTIFICATION !'}
-    return render(request, "administrator/error-403.html", dhb_context)
-
-def search(request):
-    if request.user.is_authenticated:
-
-        query = request.GET["search"]
-        result_object = Maison.objects.filter(name_sch__icontains=query)
-        # result_object = result_object.append(School.objects.filter(system_sch__icontains=query))
-        rst_srh_context = {'title': 'RESULTATS DE LA RECHERCHE LIEE A : ' + query, 'result_object': result_object}
-        return render(request, 'search_resul.html', rst_srh_context)
-    else:
-        return redirect(error403)
 
