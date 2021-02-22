@@ -1,0 +1,61 @@
+{%load static%}
+
+<header class="topbar" data-navbarbg="skin5">
+    <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+
+            <form class="app-search position-absolute" action="" style="float: right">
+                <ul class="navbar-nav float-left mr-auto">
+
+                    <li class="nav-item search-box">
+                        <div class="form-control form-control btn-info btn-block">
+                            <label>
+                                Choissisez La Categorie
+                            </label>
+
+                            <select name="categorie_id">
+                                {% for categorie in liste_categories %}
+                                <option value="{{categorie.id}}">{{categorie.nom}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </li>
+                    <br>
+                    <li class="nav-item search-box">
+                        <div class="form-control form-control btn-warning btn-block">
+                            <label>
+                                Choissisez La Ville
+                            </label>
+
+                            <select name="ville_id">
+                                {% for ville in liste_villes %}
+                                <option value="{{ville.id}}">{{ville.nom}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </li>
+                    <br>
+                    <li class="nav-item search-box">
+                        <div class="form-control form-control btn-danger btn-block">
+                            <label>
+                                Choissisez Le Quartier
+                            </label>
+                            <select name="quartier_id">
+                                {% for quartier in liste_quartiers%}
+                                <option value="{{quartier.id}}">{{quartier.nom}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </li>
+                    <br>
+                    <li class="nav-item search-box">
+                        <div class="form-control form-control btn-success btn-block">
+                            <a class="btn btn-sm btn-primary" type="submit" value="SEARCH"><i
+                                    class="fa fa-search" aria-hidden="true"></i>
+                                Rechecher
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+    </nav>
+</header>

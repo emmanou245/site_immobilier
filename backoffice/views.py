@@ -9,7 +9,6 @@ from backoffice.models import Message
 from backoffice.models import Images
 from backoffice.models import Ville
 from backoffice.models import Quartier
-from django.contrib.auth.hashers import check_password
 #import folium
 
 # Create your views here.
@@ -24,7 +23,7 @@ def home(request):
     if search == None:
         maisons = Maison.objects.filter(visibilite=True)
     else:
-        maisons = Maison.objects.filter(quartier__icontains=search, visibilite=True)
+        maisons = Maison.objects.filter(quartier__nom__icontains=search, visibilite=True)
     print(Maison)
 
     control = {'commandes': commandes, 'users': users, 'maisons': maisons}
@@ -125,7 +124,7 @@ def anonce(request):
     if search == None:
         maisons = Maison.objects.filter(visibilite=True)
     else:
-        maisons = Maison.objects.filter(quartier__nom__icontains=search,visibilite=True)
+        maisons = Maison.objects.filter(quartier__nom__icontains=search, visibilite=True)
     print(Maison)
     if request.method == 'POST':
         telephone = request.POST.get('telephone', '')
@@ -160,7 +159,7 @@ def ajouter_maison(request):
         quartier = Quartier.objects.get(id=quartier_id)
         maison.categorie = categorie
         maison.ville = ville
-        maison.categorie = quartier
+        maison.quartier = quartier
         maison.nombre_chambre = nombre_chambre
         maison.image = image
         maison.description = description
@@ -173,3 +172,21 @@ def ajouter_maison(request):
         return redirect('anonce')
     return render(request, 'ajouter_maison.html',locals())
 
+def search(request):
+    liste_categories = CategorieMaison.objects.all()
+    liste_villes = Ville.objects.all()
+    liste_quartiers = Quartier.objects.all()
+    if request.method == 'POST':
+        categorie_id = request.POST.get('categorie_id', '')
+        ville_id = request.POST.get('ville_id', '')
+        quartier_id = request.POST.get('quartier_id', '')
+        maison = Maison()
+        categorie = CategorieMaison.objects.get(id=categorie_id)
+        ville = Ville.objects.get(id=ville_id)
+        quartier = Quartier.objects.get(id=quartier_id)
+        maison.categorie = categorie
+        maison.ville = ville
+        maison.quartier = quartier
+        maison.save()
+        return redirect("/")
+    return render(request, "search_result.html", locals())

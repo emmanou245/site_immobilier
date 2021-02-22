@@ -2,91 +2,95 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="form-group">
-        <h2 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">VEUILLEZ LAISSEZ VOTRE REQUETTE ICI, EN REMPLIÇANT LE FORMULAIRE!</strong></h2>
-    </div>
-    <div class="p-4 m-4">
-        <div class="col-lg-5 mx-auto border rounded pt-4">
-            <div class="form-group">
-                <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Laissez votre requette ici!nous allons vous contactez plutard!</strong></h5>
-            </div>
-            <form action="#" method="POST">
-                {%csrf_token%}
-
-                {% if error%}
-                    <div class="alert alert-danger" role="alert">
-                        {{error}}
-                    </div>
-                {% endif %}
-                 <!-- Categorie -->
-                <div class="form-control form-control btn-light btn-block">
-                    <label>
-                        Choissisez La Categorie
-                    </label>
-
-                    <select name="categorie_id">
-                        {%for categorie in liste_categories%}
-                            <option value="{{categorie.id}}">{{categorie.nom}}</option>
-                        {%endfor%}
-                    </select>
-
-
-                </div>
-                <br>
-                <!-- Nombre des chambres -->
+<div class="container-fluid mt-3">
+        <div class="container-center">
+            <div class="col-12">
                 <div class="form-group">
-                    <label for="Nombre_chambres">Nombre des chambres</label>
-                    <input required type="number" name="nombre_chambre" id="Nombre_chambres"
-                           class="form-control form-control btn-light" placeholder="Nombre des chambres">
+                    <h2 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">VEUILLEZ LAISSEZ VOTRE REQUETTE ICI, EN REMPLIÇANT LE FORMULAIRE!</strong></h2>
                 </div>
-                <br>
-                <!-- Ville -->
-                <div class="form-group">
-                    <label for="Ville">Ville</label>
-                    <input required type="text" name="ville" id="Ville"
-                           class="form-control form-control btn-light" placeholder="Le nom de la ville">
-                </div>
-                 <br>
-                  <br>
-                <!-- Quartier -->
-                <div class="form-group">
-                    <label for="Quartier">Quartier</label>
-                    <input required type="text" name="quartier" id="Quartier"
-                           class="form-control form-control btn-light" placeholder="Le nom du quartier">
-                </div>
-                <br>
-                <!-- Message -->
-                <div class="form-group">
-                    <label for="id_message"><i class="fa fa-comment" aria-hidden="true"></i> Message:</label>
-                    <textarea required name="message" id="id_message"  placeholder="Laisser votre message ici!"
-                    class="form-control form-control btn-light"></textarea>
-                </div>
-                <br>
-                <!-- Telephone -->
-                <div class="form-group">
-                    <label for="Telephone"><i class="fa fa-phone" aria-hidden="true"></i> Telephone</label>
-                    <input required type="tel" name="telephone" id="Telephone"
-                           class="form-control form-control btn-light" placeholder="exemple:693122144">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="Prix">Prix</label>
-                    <input required type="number" name="prix" id="Prix"
-                           class="form-control form-control btn-light" placeholder="Le prix">
-                </div>
-                <!-- CreateAcount -->
-                <br>
-
-                <div class="form-group">
-                    <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        Lancer La Demande</button>
-                </div>
-            </form>
+            </div>p
         </div>
+        <div class="p-4 m-4">
+            <div class="col-lg-5 mx-auto border rounded pt-4">
+                <div class="form-group">
+                    <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Laissez nous votre requette!nous allons vous contactez le plutot que possible!</strong></h5>
+                </div>
+                <form action="#" method="POST">
+                    {%csrf_token%}
 
-    </div>
+                    {% if error%}
+                        <div class="alert alert-danger" role="alert">
+                            {{error}}
+                        </div>
+                    {% endif %}
+                     <!-- Categorie -->
+                    <div class="form-control form-control btn-light btn-block">
+                        <label>
+                            Choissisez La Categorie
+                        </label>
+
+                        <select name="categorie_id">
+                            {%for categorie in liste_categories%}
+                                <option value="{{categorie.id}}">{{categorie.nom}}</option>
+                            {%endfor%}
+                        </select>
+
+
+                    </div>
+                    <br>
+                    <!-- Nombre des chambres -->
+                    <div class="form-group">
+                        <label for="Nombre_chambres">Nombre des chambres</label>
+                        <input required type="number" name="nombre_chambre" id="Nombre_chambres"
+                               class="form-control form-control btn-light" placeholder="Nombre des chambres">
+                    </div>
+                    <br>
+                    <!-- Ville -->
+                    <div class="form-group">
+                        <label for="Ville">Ville</label>
+                        <input required type="text" name="ville" id="Ville"
+                               class="form-control form-control btn-light" placeholder="Le nom de la ville">
+                    </div>
+                     <br>
+                      <br>
+                    <!-- Quartier -->
+                    <div class="form-group">
+                        <label for="Quartier">Quartier</label>
+                        <input required type="text" name="quartier" id="Quartier"
+                               class="form-control form-control btn-light" placeholder="Le nom du quartier">
+                    </div>
+                    <br>
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="id_message"><i class="fa fa-comment" aria-hidden="true"></i> Message:</label>
+                        <textarea required name="message" id="id_message"  placeholder="Laisser votre message ici!"
+                        class="form-control form-control btn-light"></textarea>
+                    </div>
+                    <br>
+                    <!-- Telephone -->
+                    <div class="form-group">
+                        <label for="Telephone"><i class="fa fa-phone" aria-hidden="true"></i> Telephone</label>
+                        <input required type="tel" name="telephone" id="Telephone"
+                               class="form-control form-control btn-light" placeholder="exemple:693122144">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="Prix">Prix</label>
+                        <input required type="number" name="prix" id="Prix"
+                               class="form-control form-control btn-light" placeholder="Le prix">
+                    </div>
+                    <!-- CreateAcount -->
+                    <br>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            Lancer La Demande</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
 </div>
 
 {% endblock %}

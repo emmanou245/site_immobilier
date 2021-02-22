@@ -22,7 +22,7 @@
                         Choissisez La Categorie
                     </label>
 
-                    <select name="categorie_id">
+                    <select name="categorie_id" placehor>
                         {%for categorie in liste_categories%}
                             <option value="{{categorie.id}}">{{categorie.nom}}</option>
                         {%endfor%}
@@ -111,9 +111,9 @@
                 <!-- CreateAcount -->
                 <br>
 
-                <div class="form-group">
-                    <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        Lancer La Demande</button>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Publier</button>
                 </div>
             </form>
         </div>

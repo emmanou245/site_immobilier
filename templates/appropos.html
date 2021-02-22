@@ -1,19 +1,22 @@
 {% extends 'index.html'%}
 {% load static %}
 {% block content %}
+<div class="container-fluid mt-3">
     <div class="row">
-        <div class="form-group">
-            <h1 class="alert alert-info p-4 text-center">Bonjour Mme/Mr bienvevu dans notre plate-forme de site-immobilier</h1>
+        <div class="col-12">
+            <div class="form-group text-center">
+                <h1 class="alert alert-info p-4 ">Bonjour Mme/Mr bienvevu dans notre plate-forme de site-immobilier</h1>
 
+            </div>
         </div>
     </div>
     <br>
-    
-    <div class="container center">
-        <div class="row center">
-            <div class="col-3 img-center">
+
+    <div class="container texte-center">
+        <div class="row">
+            <div class="col-3">
                 <div class="card card-body">
-                     <img src="{% static 'images/emma.jpg'%}" style="width:100%" alt="">
+                    <img src="{% static 'images/emma.jpg'%}" style="width:100%" alt="">
                 </div>
                 <a href="#"><strong style="color:blue"> Savoir plus</strong></a>
 
@@ -24,6 +27,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
 

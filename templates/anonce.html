@@ -7,7 +7,7 @@
             <h3> Pourquoi annoncer sur Property Rented?</h3>
             <p  class="alert alert-info p-4 text-center"><strong style="color:red">Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
                 et de terrains à louer / vendre sur notre plateforme. Qu'il s'agisse d'appartements,
-                de studios, de maisons d'hôtes, de terrains, etc.,
+                de studios, des chambres simple, de terrains, etc.,
                 P.R vous offre un portail DIRECT vers le monde de milliers de locataires et acheteurs potentiels,
                 le tout depuis le confort de votre téléphone mobile.</strong></p>
         </div>
@@ -27,27 +27,13 @@
     <div class="row">
         <div class="col-12 alert alert-info text-center">
             <div class="form-group">
-                <a class="form-control form-control btn-primary btn-block" href="ajouter_maison">
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i> AJOUTER UNE MAISON</a>
+                <a class="btn btn-primary" href="ajouter_maison">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i> AJOUTER UNE ANNONCE</a>
             </div>
 
         </div>
 
-        <div class="col-12">
-            <div class="alert alert-info p-4 text-center">
-                <h1 class="text-center"> <strong style="color:blue">Veuilez entrer juste le nom du quartier ou vous voullez louer la maison!Si y'a des maisons vacantes dans le secteur vous l'auriez!
-                </strong></h1>
-                    <div class="container-fluid">
-                        <form class="d-flex">
-                            <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="Search">
 
-                            <button class="form-control me-3 btn-primary" type="submit" value="SEARCH"><i class="fa fa-search" aria-hidden="true"></i>
-                                Rechecher</button>
-
-                        </form>
-                    </div>
-            </div>
-        </div>
 
         <hr>
        <div id="maisons" class="col-12 mx-auto">
@@ -79,7 +65,7 @@
 <div class="container-fluid mt-3">
     <div class="col-12">
         <div class="card card-body">
-            <h5 class="alert alert-secondary p-4 text-center"><strong style="color:red"> Une fois finir de poster vos anonce! vous pouvez nous laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez pour certains Information!</strong></h5>
+            <h5 class="alert alert-secondary p-4 text-center"><strong style="color:red"> Une fois que vous finisez de poster votre anonce! vous pouvez nous laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez pour certains Information!</strong></h5>
             <hr>
             <form action="#" method="POST">
                 {%csrf_token%}
@@ -90,7 +76,7 @@
                         Message</label>
                     <textarea name="message"
                               id="Description"
-                              class="form-control form-control"
+                              class="form-control form-control alert alert-secondary"
                               placeholder="Laisser un message au propriétaire"></textarea>
                 </div>
                 <br>
@@ -98,14 +84,14 @@
                     <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
                         telephone</label>
                     <input type="tel" name="telephone" id="telephone"
-                           class="form-control form-control" placeholder="exemple:65865412">
+                           class="form-control form-control alert alert-secondary" placeholder="exemple:65865412">
                 </div>
 
                 <br>
 
-                <div class="form-group">
-                    <button class="form-control form-control btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        Lancer Le Message</button>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Envoyer</button>
                 </div>
             </form>
             <hr>
@@ -113,8 +99,10 @@
                 <p class="alert alert-secondary p-4 text-center"><strong style="color:red"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com</strong></p>
             </div>
         </div>
-        <a  class="form-control form-control btn-primary btn-block text-center" href="{% url 'index' %}">
+        <div class="form-group text-center">
+            <a  class="btn btn-primary" href="{% url 'index' %}">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
+        </div>
     </div>
     <br>
 </div>

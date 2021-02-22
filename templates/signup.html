@@ -8,7 +8,7 @@
     </div>
     <div class="p-4 m-4">
         <div class="col-lg-5 mx-auto border rounded pt-4">
-            <h3 class="alert alert-light border rounded">Creer Un Compte</h3>
+            <h3 class="alert alert-info p-4 text-center  border rounded">Creer Un Compte</h3>
             <form action="/signup" method="POST">
                 {%csrf_token%}
                  <!-- Nom -->
@@ -48,15 +48,17 @@
                 <div class="form-group">
                     <label for="Password">Password</label>
                     <input type="password" name="password" id="Password"
-                           class="form-control form-control" placeholder="********">
+                           class="form-control form-control" placeholder="Mot de pass!">
                 </div>
                 <!-- CreateAcount -->
                 <br>
 
-                <div class="form-group">
-                    <input type="submit" class="btn btn-sm btn-secondary" value="Creer">
-                    <a class="btn btn-sm btn-danger" href="{%url 'login'%}">Retour en arrière</a>
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-warning" value="Creer">
 
+                </div>
+                <div class="form-group text-center">
+                    <a class="btn btn-danger" href="{%url 'login'%}">Retour en arrière</a>
                 </div>
             </form>
         </div>

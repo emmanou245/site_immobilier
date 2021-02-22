@@ -1,6 +1,31 @@
 {% extends 'index.html'%}
 {% load static %}
 {% block content %}
+<div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 text-center">
+        <div class="btn btn-secondary">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <h2 class="alert alert-info p-4 text-center"><strong style="color:blue">UNITE</strong></h2>
+                    </div>
+                </div>
+                <br>
+                <div class="col-4">
+                    <div class="form-group">
+                        <h2 class="alert alert-info p-4 text-center"><strong style="color:rgb(208, 255, 0)">TAVAIL</strong></h2>
+                    </div>
+                </div>
+                <br>
+                <div class="col-4">
+                    <div class="form-group">
+                        <h2 class="alert alert-info p-4 text-center"><strong style="color:rgb(255, 0, 0)">PROGRES</strong></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
     <div class="container-fluid mt-3">
@@ -10,15 +35,32 @@
                         <h2 class="alert alert-info p-4 text-center"><strong style="color:blue">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h2>
                     </div>
                 </div>
-                <div class="col-5">
-                    <h5><strong style="color:red"> Si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve!</strong></h5>
-
+                <div class="col-12 text-center">
+                    <h2> <strong style="color:rgb(219, 219, 233)">OBJECTIFS DE LA PLATE-FORME</strong></h2>
                 </div>
                 <br>
                 <div class="col-6">
-                    <h5><strong style="color:red">Sinons cliquez juste sur le bouton Inscription ou sur le bouton creer_compte qui est en haut, pour creer un compte dans notre plate-forme avant de vous connectez!</strong></h5>
+                    <h3><strong style="color:rgb(208, 255, 0)"> Chers Locataires ou Bailers</strong></h3><br>
+                    <h5><strong style="color:rgb(208, 255, 0)">
+                            Bienvenue dans notre site. Ce site vous permettra de trouver ou de poster vos Propriété ou Maison sans stress
+                        dans toutes les grandes ville du Tchad. Si vous et
+                        votre famille êtes nouveaux dans la ville ou dans le quartier, vous avez
+                        probablement des problemes à trouver un appartement ou un studio ou chambre à louer ou à acheter. Ce pourquoi
+                        nous avons mis cette plate-forme à votre guis pour faciliter votre recherche!
+                    <br>
+                       Pour les Bailers, nous avons constater que vous depensez enormement pour construire vos propriété et si ça reste vacante ce n'est pas rentable alors qu'ils y'a des lautaires qui pouvaient occuper cela.
+                        En publiant vos annonce sur PROPERTY RENTED vous saurez vide des preneurs! nous sommes ravis de vous aidez Mme/Mr.
+                        </strong>
+                    </h5>
                 </div>
-
+                <br>
+                <div class="col-6">
+                    <h5><strong style="color:rgb(208, 255, 0)"> Avant tout veuillez creer compte pour vous connectez au systeme, si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve!</strong></h5>
+                    <h5><strong style="color:rgb(208, 255, 0)">Sinons cliquez juste sur le bouton Inscription ou sur le bouton creer_compte qui est en haut, pour creer un compte dans notre plate-forme avant de connecter au systeme!</strong></h5>
+                </div>
+                <div class="col-12 text-center">
+                    <a href="#" class="btn btn-primary button_all" style="margin:4%">Suggestions ?</a>
+                </div>
             </div>
             <br>
             <div class="container-center">
@@ -28,67 +70,61 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="container text-center">
+                    <div class="col-12 border rounded">
+                        <h3 class="alert btn-sm alert-secondary border rounded text-center"><strong style="color:red">SECONNECTER</strong></h3>
+                        <form action="/login" method="POST">
+                            {%csrf_token%}
+
+                            <!-- Nom -->
+                            {% if error%}
+                            <div class="alert alert-danger" role="alert">
+                                {{error}}
+                            </div>
+                            {% endif %}
+
+                            <!-- Nom d'utilisateur -->
+                            <div class="input-group mb-3 text-center">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-success text-white" id="basic-addon1"><i
+                                            class="ti-user"></i></span>
+                                </div>
+                                <input name="username" type="text" class="form-control form-control-lg alert-secondary"
+                                       placeholder="Nom d'utilisateur" aria-label="username"
+                                       aria-describedby="basic-addon1"
+                                       required value="{{username}}">
+                            </div>
+
+                            <!-- Password -->
+                            <div class="input-group mb-3 text-center">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text btn-sm bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                </div>
+                                <input name="password" type="password" class="form-control form-control-lg alert btn-sm alert-secondary"
+                                       placeholder="Mot de passe" aria-label="password" aria-describedby="basic-addon1"
+                                       required maxLength="256" minLength="4">
+                            </div>
+
+
+                            <div class="input-group-prepend text-center">
+                                <a href="signup"><strong style="color:red"> Mot de passe oublié!</strong></a>
+                            </div>
+                            <br>
+                            <!-- SECONNECTER -->
+                            <div class="form-group text-center">
+                                <button class="btn btn-warning" type="submit">Valider
+                                </button>
+                            </div>
+                            <br>
+                            <div class="form-group text-center">
+                                <a class="btn btn-primary" href="signup">Inscription
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
-
-
-<div class="container border rounded pt-2 center">
-    <div class="row">
-        <div class="col-4 center">
-            <img style="width:100%" src="{% static 'images/H.png' %}" alt="">
-        </div>
-        <div class="col-8 center">
-            <h3 class="alert btn-sm alert-light border rounded text-center"><strong style="color:red">SECONNECTER</strong></h3>
-            <form action="/login" method="POST">
-                {%csrf_token%}
-
-                <!-- Nom -->
-                {% if error%}
-                <div class="alert alert-danger" role="alert">
-                    {{error}}
-                </div>
-                {% endif %}
-
-                <!-- Nom d'utilisateur -->
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i
-                                class="ti-user"></i></span>
-                    </div>
-                    <input name="username" type="text" class="form-control form-control-lg"
-                           placeholder="Nom d'utilisateur ou Email" aria-label="username"
-                           aria-describedby="basic-addon1"
-                           required value="{{username}}">
-                </div>
-
-                <!-- Password -->
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text btn-sm bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
-                    </div>
-                    <input name="password" type="password" class="form-control form-control-lg"
-                           placeholder="Mot de passe" aria-label="password" aria-describedby="basic-addon1"
-                           required maxLength="256" minLength="4">
-                </div>
-
-
-                <div class="input-group-prepend">
-                    <a href="signup"><strong style="color:red"> Mot de passe oublié!</strong></a>
-                </div>
-                <br>
-                <!-- SECONNECTER -->
-                <div class="input-group-prepend">
-                    <button class="form-control btn-warning btn-block text-center" type="submit">Valider
-                    </button>
-                </div>
-                <br>
-                <div class="input-group-prepend">
-                    <a class="form-control btn-primary text-center" href="signup">Inscription
-                    </a>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 {% endblock %}>
