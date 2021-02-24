@@ -20,13 +20,17 @@ def home(request):
     print(search)
     commandes = Commande.objects.all()
     users = User.objects.all()
+
+    liste_categories = CategorieMaison.objects.all()
+    liste_villes = Ville.objects.all()
+    liste_quartiers = Quartier.objects.all()
     if search == None:
         maisons = Maison.objects.filter(visibilite=True)
     else:
         maisons = Maison.objects.filter(quartier__nom__icontains=search, visibilite=True)
     print(Maison)
 
-    control = {'commandes': commandes, 'users': users, 'maisons': maisons}
+    control = {'liste_categories':liste_categories, 'liste_villes':liste_villes, 'liste_quartiers':liste_quartiers,'commandes': commandes, 'users': users, 'maisons': maisons}
     return render(request,'index.html', control)
 
 
@@ -173,20 +177,22 @@ def ajouter_maison(request):
     return render(request, 'ajouter_maison.html',locals())
 
 def search(request):
+
     liste_categories = CategorieMaison.objects.all()
     liste_villes = Ville.objects.all()
     liste_quartiers = Quartier.objects.all()
+    maisons = []
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
         ville_id = request.POST.get('ville_id', '')
         quartier_id = request.POST.get('quartier_id', '')
-        maison = Maison()
+        maisons = Maison.objects.filter(visibilite=True)
         categorie = CategorieMaison.objects.get(id=categorie_id)
         ville = Ville.objects.get(id=ville_id)
         quartier = Quartier.objects.get(id=quartier_id)
-        maison.categorie = categorie
-        maison.ville = ville
-        maison.quartier = quartier
-        maison.save()
+        maisons.categorie = categorie
+        maisons.ville = ville
+        maisons.quartier = quartier
+        maisons.save()
         return redirect("/")
     return render(request, "search_result.html", locals())

@@ -45,20 +45,28 @@
                                class="form-control form-control btn-light" placeholder="Nombre des chambres">
                     </div>
                     <br>
-                    <!-- Ville -->
-                    <div class="form-group">
-                        <label for="Ville">Ville</label>
-                        <input required type="text" name="ville" id="Ville"
-                               class="form-control form-control btn-light" placeholder="Le nom de la ville">
-                    </div>
-                     <br>
-                      <br>
-                    <!-- Quartier -->
-                    <div class="form-group">
-                        <label for="Quartier">Quartier</label>
-                        <input required type="text" name="quartier" id="Quartier"
-                               class="form-control form-control btn-light" placeholder="Le nom du quartier">
-                    </div>
+                    <div class="form-control form-control btn-light btn-block">
+                    <label>
+                        Choissisez La Ville
+                    </label>
+
+                    <select name="ville_id">
+                        {%for ville in liste_villes%}
+                            <option value="{{ville.id}}">{{ville.nom}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <br>
+                 <div class="form-control form-control btn-light btn-block">
+                    <label>
+                        Choissisez Le Quartier
+                    </label>
+                     <select name="quartier_id">
+                        {%for quartier in liste_quartiers%}
+                            <option value="{{quartier.id}}">{{quartier.nom}}</option>
+                        {%endfor%}
+                    </select>
+                 </div>
                     <br>
                     <!-- Message -->
                     <div class="form-group">
