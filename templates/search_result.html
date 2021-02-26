@@ -2,8 +2,8 @@
 
 <header class="topbar" data-navbarbg="skin5">
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-
-            <form action="#" method="POST">
+            <form action="#" method="post">
+                {% csrf_token %}
                 <ul class="navbar-nav float-left mr-auto">
 
                     <li class="nav-item search-box">
@@ -12,7 +12,7 @@
                                 -- Sélectionner Categorie de la maison --
                             </label>
 
-                            <select name="categorie_id">
+                            <select name="categorie">
                                 {% for categorie in liste_categories %}
                                 <option value="{{categorie.id}}">{{categorie.nom}}</option>
                                 {% endfor %}
@@ -26,7 +26,7 @@
                                 -- Sélectionner La Ville --
                             </label>
 
-                            <select name="ville_id">
+                            <select name="ville">
                                 {% for ville in liste_villes %}
                                 <option value="{{ville.id}}">{{ville.nom}}</option>
                                 {% endfor %}
@@ -39,7 +39,7 @@
                             <label>
                                 -- Sélectionner Le Quartier --
                             </label>
-                            <select name="quartier_id">
+                            <select name="quartier">
                                 {% for quartier in liste_quartiers%}
                                 <option value="{{quartier.id}}">{{quartier.nom}}</option>
                                 {% endfor %}
@@ -49,10 +49,11 @@
                     <br>
                     <li class="nav-item search-box">
                         <div class="form-control form-control btn-success btn-block">
-                            <a class="btn btn-sm btn-dark" type="submit" value="SEARCH"><i
-                                    class="fa fa-search" aria-hidden="true"></i>
-                                Rechecher
-                            </a>
+                            <label>
+                                -- Lancer votre recherche --
+                            </label>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i>
+                                               Rechecher</button>
                         </div>
                     </li>
                 </ul>
