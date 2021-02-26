@@ -9,6 +9,7 @@ from backoffice.models import Message
 from backoffice.models import Images
 from backoffice.models import Ville
 from backoffice.models import Quartier
+from .forms import LoginForm
 #import folium
 
 # Create your views here.
@@ -59,16 +60,19 @@ def inscrire(request):
 def connecter(request):
     if request.user.is_authenticated :
         return redirect('/')
+    form = LoginForm()
     if request.method == 'POST':
-        username = request.POST.get('username','')
-        password = request.POST.get('password', '')
-        user = authenticate(username=username,password=password)
-        if user is not None:
-            login(request,user)
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get('username','')
+            password = request.POST.get('password', '')
+            user = authenticate(username=username,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('/')
             return redirect('/')
-        return redirect('/')
 
-    return render(request,'login.html')
+    return render(request,'login.html',{"form":form})
 
 def deconnecter(request):
     logout(request)
