@@ -1,8 +1,8 @@
 {% extends 'index.html'%}
-{% load static %}
+{%load crispy_forms_tags%}
 {% block content %}
 <div class="container-fluid mt-3 text-center">
-    <div class="form-control form-control btn-secondary btn-block">
+    <div class="form-control form-control btn-block" style="background-color: rgba(117, 121, 72, 0.6)">
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
     <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-12">
@@ -42,11 +42,11 @@
                 <div class="col-12 text-center">
                     <h3><strong style="color:rgb(208, 255, 0)"> Chers Locataires ou Bailers</strong></h3><br>
                     <h5><strong style="color:rgb(208, 255, 0)">
-                            Bienvenue dans notre site. Ce site vous permettra de trouver ou de poster vos Propriété ou Maison sans stress
+                            Bienvenue dans la Plate-Forme. Cette Plate-Forme vous permettra de trouver ou de poster vos Propriété ou Maison sans stress
                         dans toutes les grandes ville du Tchad. Si vous et
                         votre famille êtes nouveaux dans la ville ou dans le quartier, vous avez
                         probablement des problemes à trouver un appartement ou un studio ou chambre à louer ou à acheter. Ce pourquoi
-                        nous avons mis cette plate-forme à votre guis pour faciliter votre recherche!
+                        nous avons mis cette Plate-Forme à votre guis pour faciliter votre recherche!
                     <br>
                        Pour les Bailers, nous avons constater que vous depensez enormement pour construire vos propriété et si ça reste vacante ce n'est pas rentable alors qu'ils y'a des lautaires qui pouvaient occuper cela.
                         En publiant vos annonce sur PROPERTY RENTED vous saurez vide des preneurs! nous sommes ravis de vous aidez Mme/Mr.
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <br>
-            <div class="container text-center">
+            <div class="container">
                     <div class="col-12 border rounded">
                         <h3 class="alert btn-sm alert-secondary border rounded text-center"><strong style="color:red">SECONNECTER</strong></h3>
                         <form action="/login" method="POST">
@@ -84,25 +84,8 @@
                             {% endif %}
 
                             <!-- Nom d'utilisateur -->
-                            <div class="input-group mb-3 text-center">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-success text-white" id="basic-addon1"><i
-                                            class="ti-user"></i></span>
-                                </div>
-                                <input name="username" type="text" class="form-control form-control-lg alert-secondary"
-                                       placeholder="Nom d'utilisateur" aria-label="username"
-                                       aria-describedby="basic-addon1"
-                                       required value="{{username}}">
-                            </div>
-
-                            <!-- Password -->
-                            <div class="input-group mb-3 text-center">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text btn-sm bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
-                                </div>
-                                <input name="password" type="password" class="form-control form-control-lg alert btn-sm alert-secondary"
-                                       placeholder="Mot de passe" aria-label="password" aria-describedby="basic-addon1"
-                                       required maxLength="256" minLength="4">
+                            <div class="form-group">
+                                {{form|crispy}}
                             </div>
 
                             <br>

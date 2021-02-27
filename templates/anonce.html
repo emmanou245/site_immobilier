@@ -1,109 +1,109 @@
 {% extends 'index.html'%}
 
 {% block content %}
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-6">
-            <h3> Pourquoi annoncer sur Property Rented?</h3>
-            <p  class="alert alert-info p-4 text-center"><strong style="color:red">Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
-                et de terrains à louer / vendre sur notre plateforme. Qu'il s'agisse d'appartements,
-                de studios, des chambres simple, de terrains, etc.,
-                P.R vous offre un portail DIRECT vers le monde de milliers de locataires et acheteurs potentiels,
-                le tout depuis le confort de votre téléphone mobile.</strong></p>
+<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-6">
+                <h3> Pourquoi annoncer sur Property Rented?</h3>
+                <p  class="alert alert-info p-4 text-center"><strong style="color:red">Chaque semaine, nous avons des milliers d'utilisateurs à la recherche de maisons vacantes
+                    et de terrains à louer / vendre sur notre plateforme. Qu'il s'agisse d'appartements,
+                    de studios, des chambres simple, de terrains, etc.,
+                    P.R vous offre un portail DIRECT vers le monde de milliers de locataires et acheteurs potentiels,
+                    le tout depuis le confort de votre téléphone mobile.</strong></p>
+            </div>
+            <div class="col-6">
+                <h3>Devenez propriétaire de votre espace!</h3>
+                <p  class="alert alert-info p-4 text-center"><strong style="color:red">Vous avez votre mini page Web; toutes vos annonces sont affichées sur votre page dédiée où les clients
+                    peuvent voir toutes vos propriétés vacantes et nous envoyer des messages, nous vous
+                    tiendrons informer directement et pour lancer un chat et des visites. En termes de visibilité,
+                    vous / votre agence obtenez un excellent classement sur Internet!</strong></p>
+            </div>
         </div>
-        <div class="col-6">
-            <h3>Devenez propriétaire de votre espace!</h3>
-            <p  class="alert alert-info p-4 text-center"><strong style="color:red">Vous avez votre mini page Web; toutes vos annonces sont affichées sur votre page dédiée où les clients
-                peuvent voir toutes vos propriétés vacantes et nous envoyer des messages, nous vous
-                tiendrons informer directement et pour lancer un chat et des visites. En termes de visibilité,
-                vous / votre agence obtenez un excellent classement sur Internet!</strong></p>
-        </div>
+
     </div>
+    <hr>
 
-</div>
-<hr>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-12 alert alert-info text-center">
+                <div class="form-group">
+                    <a class="btn btn-primary" href="ajouter_maison">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i> AJOUTER UNE ANNONCE</a>
+                </div>
 
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-12 alert alert-info text-center">
-            <div class="form-group">
-                <a class="btn btn-primary" href="ajouter_maison">
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i> AJOUTER UNE ANNONCE</a>
             </div>
 
-        </div>
 
 
-
-        <hr>
-       <div id="maisons" class="col-12 mx-auto">
-           <div class="row mx-auto">
-               {% for maison in maisons %}
-               <div class="card mx-auto mb-3" style="width: 18rem;">
-                   <div class="view overlay">
-                       {% if maison.image%}
-                       <img src="{{maison.image.url}}" class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
-                       {% endif %}
-                       <a href="#!">
-                           <div class="mask rgba-white-slight"></div>
-                       </a>
+            <hr>
+           <div id="maisons" class="col-12 mx-auto">
+               <div class="row mx-auto">
+                   {% for maison in maisons %}
+                   <div class="card mx-auto mb-3" style="width: 18rem;">
+                       <div class="view overlay">
+                           {% if maison.image%}
+                           <img src="{{maison.image.url}}" class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
+                           {% endif %}
+                           <a href="#!">
+                               <div class="mask rgba-white-slight"></div>
+                           </a>
+                       </div>
+                       <div class="card-body text-center">
+                           <p><b>{{maison.description}}</b></p>
+                           <p><b>{{maison.ville}}</b></p>
+                           <p><b>{{maison.quartier}}</b></p>
+                           <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-outline-primary">Savoir plus</a></p>
+                       </div>
                    </div>
-                   <div class="card-body text-center">
-                       <p><b>{{maison.description}}</b></p>
-                       <p><b>{{maison.ville}}</b></p>
-                       <p><b>{{maison.quartier}}</b></p>
-                       <p><a href="{%url 'detail_maison' maison.id%}" class="btn btn-sm btn-outline-primary">Savoir plus</a></p>
-                   </div>
+                   {% endfor %}
                </div>
-               {% endfor %}
            </div>
-       </div>
+        </div>
     </div>
-</div>
-</div>
-<hr>
-<div class="container-fluid mt-3">
-    <div class="col-12">
-        <div class="card card-body">
-            <h5 class="alert alert-secondary p-4 text-center"><strong style="color:red"> Une fois que vous finisez de poster votre anonce! vous pouvez nous laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez pour certains Information!</strong></h5>
-            <hr>
-            <form action="#" method="POST">
-                {%csrf_token%}
-                <!-- Message -->
+    <hr>
+    <div class="container-fluid mt-3">
+        <div class="col-12">
+            <div class="card card-body">
+                <h5 class="alert alert-secondary p-4 text-center"><strong style="color:red"> Une fois que vous finisez de poster votre anonce! vous pouvez nous laisser un message avec votre numero de telephone fonctionnel!nous allons vous contactez pour certains Information!</strong></h5>
+                <hr>
+                <form action="#" method="POST">
+                    {%csrf_token%}
+                    <!-- Message -->
+                    <div class="form-group">
+
+                        <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
+                            Message</label>
+                        <textarea name="message"
+                                  id="Description"
+                                  class="form-control form-control alert alert-secondary"
+                                  placeholder="Laisser un message au propriétaire"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
+                            telephone</label>
+                        <input type="tel" name="telephone" id="telephone"
+                               class="form-control form-control alert alert-secondary" placeholder="exemple:65865412">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            Envoyer</button>
+                    </div>
+                </form>
+                <hr>
                 <div class="form-group">
-
-                    <label for="Description"><i class="fa fa-comment" aria-hidden="true"></i>
-                        Message</label>
-                    <textarea name="message"
-                              id="Description"
-                              class="form-control form-control alert alert-secondary"
-                              placeholder="Laisser un message au propriétaire"></textarea>
+                    <p class="alert alert-secondary p-4 text-center"><strong style="color:red"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com</strong></p>
                 </div>
-                <br>
-                <div class="form-group">
-                    <label for="telephone"><i class="fa fa-phone" aria-hidden="true"></i>
-                        telephone</label>
-                    <input type="tel" name="telephone" id="telephone"
-                           class="form-control form-control alert alert-secondary" placeholder="exemple:65865412">
-                </div>
-
-                <br>
-
-                <div class="form-group text-center">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        Envoyer</button>
-                </div>
-            </form>
-            <hr>
-            <div class="form-group">
-                <p class="alert alert-secondary p-4 text-center"><strong style="color:red"> Si vous avez des inquiétudes, contactez-nous via +237693122144 ou propertyrented2021@gmail.com</strong></p>
+            </div>
+            <div class="form-group text-center">
+                <a  class="btn btn-primary" href="{% url 'index' %}">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
             </div>
         </div>
-        <div class="form-group text-center">
-            <a  class="btn btn-primary" href="{% url 'index' %}">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i> Retour en arriére</a>
-        </div>
     </div>
-    <br>
 </div>
 {% endblock %}

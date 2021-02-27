@@ -9,7 +9,7 @@ from backoffice.models import Message
 from backoffice.models import Images
 from backoffice.models import Ville
 from backoffice.models import Quartier
-from .forms import LoginForm
+from .forms import LoginForm,SignupForm
 #import folium
 
 # Create your views here.
@@ -42,37 +42,34 @@ def home(request):
 
 
 def inscrire(request):
-    if request.user.is_authenticated :
+    if request.user.is_authenticated:
         return redirect('/')
-    if request.method == 'POST':
-        username = request.POST.get('username', '')
-        first_name = request.POST.get('first_name', '')
-        last_name = request.POST.get('last_name', '')
-        email = request.POST.get('email', '')
-        password = request.POST.get('password', '')
-        user = User.objects.create_user(username,email,password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-        return redirect('login')
-    return render(request, 'signup.html')
+    form = SignupForm()
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            row_password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=row_password)
+            return redirect('login')
+    return render(request, "signup.html", {'form': form})
 
 def connecter(request):
-    if request.user.is_authenticated :
+    if request.user.is_authenticated:
         return redirect('/')
     form = LoginForm()
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
+    if request.method == "POST":
+        form = LoginForm(request.POST or None)
         if form.is_valid():
-            username = request.POST.get('username','')
-            password = request.POST.get('password', '')
-            user = authenticate(username=username,password=password)
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
             if user is not None:
-                login(request,user)
-                return redirect('/')
-            return redirect('/')
-
-    return render(request,'login.html',{"form":form})
+                login(request, user)
+                return redirect("/")
+        return redirect('/')
+    return render(request, "login.html", {'form': form})
 
 def deconnecter(request):
     logout(request)

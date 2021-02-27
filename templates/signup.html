@@ -1,7 +1,7 @@
 {% extends 'index.html'%}
-
+{%load crispy_forms_tags%}
 {% block content %}
-
+<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
 <div class="container">
     <div class="col-12">
         <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">FORMULAIRE D'INSCRIPTION</strong></h1>
@@ -11,7 +11,6 @@
             <h3 class="alert alert-info p-4 text-center  border rounded">Creer Un Compte</h3>
             <form action="/signup" method="POST">
                 {%csrf_token%}
-                 <!-- Nom -->
                 {% if error%}
                     <div class="alert alert-danger" role="alert">
                         {{error}}
@@ -19,37 +18,9 @@
                 {% endif %}
                 <!-- Nom d'utilisateur -->
                 <div class="form-group">
-                    <label for="Username">Username</label>
-                    <input type="text" name="username" id="Username"
-                           class="form-control form-control" placeholder="Nom d'utilisateur">
-                </div>
-                <!-- Nom -->
-                <div class="form-group">
-                    <label for="Prenom">Prenom</label>
-                    <input type="text" name="first_name" id="Prenom"
-                           class="form-control form-control" placeholder="Votre prenom">
-                </div>
-                <!-- prenom -->
-
-                <div class="form-group">
-                    <label for="Nom">Nom</label>
-                    <input type="text" name="last_name" id="Nom"
-                           class="form-control form-control" placeholder="Votre nom">
+                    {{form|crispy}}
                 </div>
 
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" name="email" id="Email"
-                           class="form-control form-control" placeholder="example@gmail.com">
-                </div>
-
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="Password">Password</label>
-                    <input type="password" name="password" id="Password"
-                           class="form-control form-control" placeholder="Mot de pass!">
-                </div>
                 <!-- CreateAcount -->
                 <br>
 
@@ -57,13 +28,14 @@
                     <input type="submit" class="btn btn-warning" value="Creer">
 
                 </div>
-                <div class="form-group text-center">
-                    <a class="btn btn-danger" href="{%url 'login'%}">Retour en arrière</a>
-                </div>
             </form>
+            <div class="form-group text-center">
+                <h5>Vous avez déjà un compte dans la plate-forme?<a href="login">Cliquez ici pour aller
+                    Se connecter</a></h5>
+            </div>
         </div>
 
     </div>
 </div>
-
+</div>
 {% endblock %}
