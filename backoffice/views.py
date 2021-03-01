@@ -10,6 +10,7 @@ from backoffice.models import Images
 from backoffice.models import Ville
 from backoffice.models import Quartier
 from .forms import LoginForm,SignupForm
+from django.db.models import Q
 #import folium
 
 # Create your views here.
@@ -18,26 +19,16 @@ def home(request):
         return redirect('login')
     commandes = Commande.objects.all()
     users = User.objects.all()
-    maisons = Maison.objects.filter(visibilite=True)
     liste_categories = CategorieMaison.objects.all()
     liste_villes = Ville.objects.all()
+    maisons = Maison.objects.all()
     liste_quartiers = Quartier.objects.all()
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id', '')
         ville_id = request.POST.get('ville_id', '')
         quartier_id = request.POST.get('quartier_id', '')
-        maison = Maison()
-        categorie = CategorieMaison.objects.get(id=categorie_id)
-        ville = Ville.objects.get(id=ville_id)
-        quartier = Quartier.objects.get(id=quartier_id)
-        maison.categorie = categorie
-        print(categorie)
-        maison.ville = ville
-        print(ville)
-        maison.quartier = quartier
-        print(quartier)
-        maison.save()
-        return redirect("/")
+
+        maisons = Maison.objects.filter(Q(categorie=CategorieMaison.objects.get(id=int(categorie_id)) | Q(ville=Ville.objects.get(id=int(ville_id)) | Q(quartier=Quartier.objects.get(id=int(quartier_id))))))
     return render(request,'index.html',locals())
 
 
