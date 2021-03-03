@@ -24,11 +24,11 @@ def home(request):
     maisons = Maison.objects.all()
     liste_quartiers = Quartier.objects.all()
     if request.method == 'POST':
-        categorie_id = request.POST.get('categorie_id', '')
-        ville_id = request.POST.get('ville_id', '')
-        quartier_id = request.POST.get('quartier_id', '')
-
-        maisons = Maison.objects.filter(Q(categorie=CategorieMaison.objects.get(id=int(categorie_id)) | Q(ville=Ville.objects.get(id=int(ville_id)) | Q(quartier=Quartier.objects.get(id=int(quartier_id))))))
+        categorie_id = request.POST.get('categorie_id','')
+        ville_id = request.POST.get('ville_id','')
+        quartier_id = request.POST.get('quartier_id','')
+        maisons = Maison.objects.filter(Q(categorie=CategorieMaison.objects.get(id=categorie_id) | Q(ville=Ville.objects.get(id=ville_id) | Q(quartier=Quartier.objects.get(id=quartier_id)))))
+        print(categorie_id, ville_id, quartier_id)
     return render(request,'index.html',locals())
 
 
