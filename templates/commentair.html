@@ -1,0 +1,52 @@
+{% extends 'index.html'%}
+
+{% block content%}
+<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
+<div class="container">
+     <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">Formulaire de commentaire!</strong></h1>
+    <div class="p-4 m-4">
+        <div class="col-lg-7 mx-auto border rounded pt-4">
+            <div class="form-group">
+                <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Ajouter votre commentaire ici!</strong></h5>
+            </div>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+
+                {% if error%}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
+              
+                 <!-- photo de la personne -->
+                <div class="form-group">
+                        <label for="Photo">Votre photo:</label>
+                        <input type="file" name="photo" id="Photo"
+                               class="form-control form-control-sm" placeholder="Ajouter votre photo">
+                </div>
+
+                 <!-- Commentaires -->
+                <div class="form-group">
+
+                        <label for="Commentaire"><i class="fa fa-comment" aria-hidden="true"></i>
+                            Commentaires:</label>
+                        <textarea name="commentaire"
+                                      id="Commentaire"
+                                      class="form-control form-control btn-light"
+                                      placeholder="Ajouter vos commentaires ici!"></textarea>
+                </div>
+
+
+                <!-- publier -->
+                <br>
+
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        Publier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

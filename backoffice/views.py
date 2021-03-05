@@ -5,6 +5,7 @@ from backoffice.models import CategorieMaison
 from backoffice.models import Commande
 from backoffice.models import Maison
 from backoffice.models import Requette
+from backoffice.models import Commentaire
 from backoffice.models import Message
 from backoffice.models import Images
 from backoffice.models import Ville
@@ -141,6 +142,8 @@ def anonce(request):
     return render(request, 'anonce.html', context)
 
 def ajouter_maison(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     liste_categories = CategorieMaison.objects.all()
     liste_villes = Ville.objects.all()
     liste_quartiers = Quartier.objects.all()
@@ -173,3 +176,19 @@ def ajouter_maison(request):
         maison.save()
         return redirect('anonce')
     return render(request, 'ajouter_maison.html',locals())
+
+def commentaire_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    commentaires = Commentaire.objects.all()
+    if request.method == 'POST':
+        photo = request.FILES.get('photo', '')
+        commentaire = request.POST.get('commentaire', '')
+        commenter = Commentaire()
+        commenter.photo = photo
+        commenter.commentaire = commentaire
+        commenter.user = request.user
+        commenter.save()
+        return redirect('/')
+    return render(request, 'commentair.html',locals())
+

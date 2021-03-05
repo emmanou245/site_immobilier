@@ -57,19 +57,15 @@
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-6">
-                        <h2 class="alert alert-dark p-4 text-small"><strong style="color:rgb(124, 124, 190)">Trouvez des maisons à louer
+                        <h2 class="alert alert-dark p-4 text-small">Trouvez des maisons à louer
                             sans
-                            stress!</strong></h2>
-                        <p class="alert alert-dark p-4 text-small"><strong style="color:rgb(124, 124, 182)"> Vous êtes à quelques clics de
-                            votre maison de rêve, de votre bureau et de votre mini cite!</strong></p>
-                        <div class="form-group text-center">
-                            <a class="form-control form-control btn-dark btn-block" href="anonce"> Publier mon anonce</a>
-                        </div>
+                            stress!</h2>
+                        <h5 class="alert alert-dark p-4 text-center"> Vous êtes à quelques clics de
+                            votre maison de rêve, de votre bureau et de votre mini cité!</h5>
                     </div>
                     <div class="col-6">
                         <div class="alert alert-dark p-4 text-center">
-                            <h1 class="text-center"><strong style="color:rgb(104, 104, 160)">Veuilez entrer juste le nom du quartier! les
-                                propriétés et les terrains vacantes dans le secteur vont s'affichier!</strong></h1>
+                            <h2>Chers Bailers, si vous avez des Propriétés ou des Maisons vacantes ! vous pouvez ajouter vos annonces vous-même sans stress, en <a href="anonce">Cliquez Ici</a></h1>
                         </div>
                     </div>
                 </div>
@@ -112,20 +108,41 @@
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-12 alert alert-dark text-center">
-                        <h2><strong style="color:rgb(107, 107, 194)">VOUS N'AVEZ PAS ENCORE TROUVEZ LA MAISON QUI CORRESPOND A VOTRE
-                            CRITERE?</strong></h2>
+                        <h2>Vous n'avez pas encore trouvé la Maison qui correspond à votre critère ?<a href="{% url 'requette' %}">Cliquez Ici</a> pour creer une demande de propriété!</h2>
                         <br>
-                        <h5><strong style="color:rgb(172, 96, 96)">creez une demande de propriété, nous allons vous repondre dans peu
-                            de
-                            temps!</strong></h5>
-                        <br>
-                        <div class="form-group">
-                            <a class="btn btn-dark" href="{% url 'requette' %}">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Lancer une requette</a>
-                        </div>
+                        <h5><strong style="color:rgb(172, 96, 96)">Créez une demande de propriété, nous permettra de connaitre votre critère et nous allons vous répondre dès que possible ! Merci.</strong></h5>
 
                     </div>
 
+                </div>
+            </div>
+       
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 alert alert-dark p-4 text-center">
+                        <h2>Avez-vous des commentaires à ajouter,appropos des services que rend de cette Plate-Forme?<a href="commentair">Cliquez Ici</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid m-3">
+                <div class="row mx-auto">
+                    <div id="maisons" class="col-12 mx-auto"></div>
+                        {% for commente in commentaires %}
+                            <div class="row">
+                                <div class="col-5">
+                                        {% if commente.photo %}
+                                        <img src="{{commente.photo.url}}"
+                                            class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
+                                        {% endif %}
+                                </div>
+                                <div class="col-7">
+                                    <p><b>{{commente.commentaire}}</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

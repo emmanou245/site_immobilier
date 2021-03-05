@@ -7,6 +7,7 @@ from .models import Commande
 from .models import Requette
 from .models import Message
 from .models import Images
+from .models import Commentaire
 
 
 
@@ -17,6 +18,7 @@ admin.site.register(Quartier)
 admin.site.register(Commande)
 admin.site.register(Requette)
 admin.site.register(Message)
+admin.site.register(Commentaire)
 
 
 class ImagesAdmin(admin.StackedInline):
