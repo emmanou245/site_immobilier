@@ -87,8 +87,8 @@ class Message(models.Model):
 
 class Commentaire(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    commentaire = models.TextField(null=True)
     photo = models.FileField(upload_to='images/',null=True)
+    commentaire = models.TextField(null=True)
     visibilite = models.BooleanField(default=False)
     def __str__(self):
         return '{}'.format(self.user)

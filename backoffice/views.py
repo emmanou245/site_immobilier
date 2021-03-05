@@ -24,6 +24,7 @@ def home(request):
     liste_villes = Ville.objects.all()
     maisons = Maison.objects.all()
     liste_quartiers = Quartier.objects.all()
+    commentaires = Commentaire.objects.filter(visibilite=True)
     if request.method == 'POST':
         categorie_id = request.POST.get('categorie_id','')
         ville_id = request.POST.get('ville_id','')
@@ -190,5 +191,5 @@ def commentaire_view(request):
         commenter.user = request.user
         commenter.save()
         return redirect('/')
-    return render(request, 'commentair.html',locals())
+    return render(request, 'commentair.html',{'liste_commentaire' : commentaires})
 

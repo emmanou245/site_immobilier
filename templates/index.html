@@ -126,18 +126,21 @@
                 </div>
             </div>
             <div class="container-fluid m-3">
-                <div class="row mx-auto">
-                    <div id="maisons" class="col-12 mx-auto"></div>
+                <div id="maisons" class="col-12 mx-auto">
+                    <div class="row mx-auto">
                         {% for commente in commentaires %}
-                            <div class="row">
-                                <div class="col-5">
-                                        {% if commente.photo %}
-                                        <img src="{{commente.photo.url}}"
-                                            class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
-                                        {% endif %}
-                                </div>
-                                <div class="col-7">
-                                    <p><b>{{commente.commentaire}}</b></p>
+                        <div class="card mx-auto mb-3" style="width: 18rem;">
+                            <div class="view overlay">
+                                <div class="row">
+                                    <div class="col-6 mx-auto">
+                                            {% if commente.photo %}
+                                            <img src="{{commente.photo.url}}"
+                                                class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
+                                            {% endif %}
+                                    </div>
+                                    <div class="col-6">
+                                        <p><b>{{commente.commentaire}}</b></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
