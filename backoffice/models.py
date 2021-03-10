@@ -26,7 +26,7 @@ class Quartier(models.Model):
 
 class Maison(models.Model):
     user = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
-    categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
+    categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, null=True)
     visibilite = models.BooleanField(default=False)
     nombre_chambre = models.IntegerField(null=True)
     image = models.FileField(blank=True,null=True)
@@ -66,10 +66,10 @@ class Commande(models.Model):
 
 class Requette(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, default=1, null=True)
+    categorie = models.ForeignKey(CategorieMaison,on_delete=models.DO_NOTHING, null=True)
     nombre_chambre = models.IntegerField(null=True)
-    ville = models.CharField(max_length=256, null=True)
-    quartier = models.CharField(max_length=256, null=True)
+    ville =  models.ForeignKey(Ville,on_delete=models.DO_NOTHING, null=True)
+    quartier =  models.ForeignKey(Quartier,on_delete=models.DO_NOTHING, null=True)
     message = models.TextField(null=True)
     telephone = models.IntegerField(null=True)
     prix = models.FloatField(null=True)
@@ -88,6 +88,8 @@ class Message(models.Model):
 class Commentaire(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     photo = models.FileField(upload_to='images/',null=True)
+    nom = models.CharField(max_length=256, null=True,blank=True)
+    prenom = models.CharField(max_length=256, null=True,blank=True)
     commentaire = models.TextField(null=True)
     visibilite = models.BooleanField(default=False)
     def __str__(self):

@@ -1,13 +1,13 @@
 {% extends 'index.html'%}
 
 {% block content%}
-<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
+<div class="mask" style="background-color: rgba(194, 207, 53, 0.6)">
 <div class="container">
-     <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">FORMULAIRE D'AJOUT D'UNE ANNONCE!</strong></h1>
+     <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:blue">Si vous avez des annonces, vous pouvez l'ajouter ici !</strong></h1>
     <div class="p-4 m-4">
         <div class="col-lg-7 mx-auto border rounded pt-4">
             <div class="form-group">
-                <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Ajouter votre annonce ici!</strong></h5>
+                <h5 class="alert alert-info p-4 text-small text-center"><strong style="color:red">Formulaire de l'ajout d'annonce !</strong></h5>
             </div>
             <form action="#" method="POST" enctype="multipart/form-data">
                 {%csrf_token%}
@@ -62,7 +62,7 @@
                 <br>
                  <!-- photo de la personne -->
                 <div class="form-group">
-                        <label for="Photo">Photo de la maison</label>
+                        <label for="Photo"><i class="fa fa-home" aria-hidden="true"></i> Photo de la maison</label>
                         <input type="file" name="image" id="Photo"
                                class="form-control form-control-sm" placeholder="Photo de la personne">
                 </div>

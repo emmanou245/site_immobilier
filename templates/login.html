@@ -1,116 +1,161 @@
 {% extends 'index.html'%}
 {%load crispy_forms_tags%}
 {% block content %}
-<div class="container-fluid mt-3 text-center">
-    <div class="form-control form-control btn-block" style="background-color: rgba(117, 121, 72, 0.6)">
+<div class="form-control form-control btn-block" style="background-color: rgba(194, 207, 53, 0.6)">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <div class="form-group">
-                    <h2 class="alert alert-dark p-4 text-center"><strong style="color:blue">UNITE</strong></h2>
+                <div class="alert alert-dark p-4 text-center">
+                    <h2><strong style="color:blue">UNITE</strong></h2>
                 </div>
             </div>
             <br>
             <div class="col-3">
-                <div class="form-group">
-                    <h2 class="alert alert-dark p-4 text-center"><strong style="color:rgb(208, 255, 0)">TAVAIL</strong>
-                    </h2>
+                <div class="form-group alert alert-dark p-4 text-center">
+                    <h2><strong style="color:rgb(208, 255, 0)">TAVAIL</strong></h2>
                 </div>
             </div>
             <br>
             <div class="col-4">
-                <div class="form-group">
-                    <h2 class="alert alert-primary p-4 text-center"><strong style="color:rgb(223, 76, 76)">PROGRES</strong>
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-             <div class="col-12">
-                <div class="form-group">
-                    <h2 class="text-center"><strong style="color:rgb(195, 221, 77)">Chers compatriotes, soyons des peuples Unanime, qui ne baissent pas le bras, qui Travaillent sans cesse, car ce le seul moyen pour Progresser dans la société !</strong>
+                <div class="alert alert-dark p-4 text-center">
+                    <h2><strong style="color:rgb(223, 76, 76)">PROGRES</strong>
                     </h2>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <h2><strong style="color:rgb(65, 63, 223)">Bonjour mes chers compatriotes, je nous exhorte aujourd’hui d’être un peuple Unanime, qui ne baise pas le bras, qui Travail sans cesse car ce le seul moyen pour Progresser dans la société et être libre, ta liberté ne naitra que de toi mon(ma) cher(e), ton courage sera ta détermination ! Merci.</strong>
+                </h2>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
+<div class="mask" style="background-color: rgba(194, 207, 53, 0.6)">
     <div class="container-fluid mt-3">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <h2 class="alert alert-secondary p-4 text-center"><strong style="color:rgb(115, 115, 206)">ADMINISTRATION DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-dark p-4 text-center">
+                    <h2><strong style="color:rgb(75, 115, 226)">ADMINISTRATION
+                        DU SYSTEME DE GESTION D'IMMOBILIER!</strong></h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="text-center">
+                    <h2><strong style="color:rgb(31, 20, 196)">OBJECTIFS DE LA PLATE-FORME</strong></h2>
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <div class="text-center">
+                    <h3><strong style="color:rgb(65, 63, 223)">Chers Locataires ou Bailers</strong></h3><br>
+                    <h5><strong style="color:rgb(65, 63, 223)">
+                    Bienvenue Mme/Mr. Cette Plate-Forme vous permettra de trouver ou de poster vos Propriétés ou Maisons
+                        sans stress
+                        dans toutes les grandes villes du Tchad. Si vous et
+                        votre famille êtes nouveaux dans la ville ou dans le quartier, vous avez
+                        probablement des problèmes à trouver un appartement ou un studio ou des chambres à louer ou à
+                        acheter. Ce pourquoi
+                        nous avons mis sur pied cette Plate-Forme afin de faciliter votre recherche !
+
+                        <br>
+                        Chers Baïlers, nous avons constaté que vous dépensez énormément pour construire vos propriétés et si
+                        ça reste vacante, ce n'est pas rentable alors qu'ils y'a des milliers de locataire à la recherche
+                        des maisons ou des terrains.
+                        Alors qu'en publiant vos annonces sur PROPERTY RENTED vous saurez vide des preneurs !Mme/Mr,
+                        nous sommes ravis de vous aider. Merci, si vous avez des difficultés n’hésiter pas à nous contactez car vos satisfactions sont nos premières préoccupations !
+                    </strong>
+                    </h5>
+                    <br>
+                    <h5><strong style="color:rgb(65, 63, 223)">Avant tout veuillez créer un compte pour vous connecter au système, si vous avez déjà un compte dans notre plate-forme connectez-vous pour accéder à votre maison de rêve, de votre bureau et de votre mini cité!</strong></h5>
+                    <h5><strong style="color:rgb(65, 63, 223)">Si non cliquez juste sur le lien S’inscrire qui est en bas du Formulaire ou sur le bouton creer_compte qui est en haut, pour créer un compte dans la plate-forme avant de vous connecter au système !</strong></h5>
+                </div>
+            </div>
+            <br>
+
+            <div class="col-12">
+                <div class="text-center">
+                    <a href="sug" class="btn btn-primary" style="margin:4%">Suggestions ?</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        <br>
+        <div class="container">
+            <div class="col-12 border rounded">
+                <h3 class="alert alert-secondary border rounded text-center"><strong style="color:rgb(23, 78, 196)">FORMULAIRE POUR SE CONNECTER</strong>
+                </h3>
+                <form action="/login" method="POST">
+                    {%csrf_token%}
+
+                    <!-- Nom -->
+                    {% if error%}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
                     </div>
-                </div>
-                <div class="col-12 text-center">
-                    <h2> <strong style="color:rgb(219, 219, 233)">OBJECTIFS DE LA PLATE-FORME</strong></h2>
-                </div>
-                <br>
-                <div class="col-12 text-center">
-                    <h3><strong style="color:rgb(208, 255, 0)"> Chers Locataires ou Bailers</strong></h3><br>
-                    <h5><strong style="color:rgb(195, 221, 77)">
-                           Bienvenue Mme/Mr. Cette Plate-Forme vous permettra de trouver ou de poster vos Propriétés ou Maisons sans stress
-                    dans toutes les grandes villes du Tchad. Si vous et
-                    votre famille êtes nouveaux dans la ville ou dans le quartier, vous avez
-                    probablement des problèmes à trouver un appartement ou un studio ou des chambres à louer ou à acheter. Ce pourquoi
-                    nous avons mis cette Plate-Forme sur pied pour vous faciliter !
+                    {% endif %}
+
+                    <!-- Nom d'utilisateur -->
+                    <div class="form-group">
+                        {{form|crispy}}
+                    </div>
 
                     <br>
-                        Chers Baïlers, nous avons constaté que vous dépensez énormément pour construire vos propriétés et si ça reste vacante, ce n'est pas rentable alors qu'ils y'a des milliers de locataire à la recherche des maisons ou des terrains.
-                        Alors qu'en publiant vos annonces sur PROPERTY RENTED vous saurez vide des preneurs !Merci Mme/Mr, nous sommes ravis de vous aider.
-                     </strong>
-                    </h5>
-                    <h5><strong style="color:rgb(195, 221, 77)"> Avant tout veuillez creer compte pour vous connectez au systeme, si vous avez dejà un compte dans notre plate-forme veuillez vous connectez pour acceder aux maisons de vos reve!</strong></h5>
-                    <h5><strong style="color:rgb(195, 221, 77)">Sinons cliquez juste sur le bouton Inscription ou sur le bouton creer_compte qui est en haut, pour creer un compte dans notre plate-forme avant de connecter au systeme!</strong></h5>
-                </div>
-                <br>
-
-                <div class="col-12 text-center">
-                    <a href="#" class="btn btn-primary button_all" style="margin:4%">Suggestions ?</a>
-                </div>
-            </div>
-            <br>
-            <div class="container-center">
-                <div class="col-12">
-                    <div class="form-group">
-                        <h3 class="alert alert-secondary p-4 text-center"><strong style="color:rgb(113, 113, 190)">FORMULAIRE DE CONNEXION!</strong></h3>
+                    <!-- SECONNECTER -->
+                    <div class="form-group text-center">
+                        <button class="btn btn-warning" type="submit">Valider
+                        </button>
                     </div>
+                    <br>
+                </form>
+                <div class="form-group text-center">
+                    <h5><strong style="color:rgb(12, 12, 11)">Vous etes nouveau?</strong><a href="signup">Cliquez ici
+                        pour S'Inscrire</a></h5>
                 </div>
             </div>
-            <br>
-            <div class="container">
-                    <div class="col-12 border rounded">
-                        <h3 class="alert btn-sm alert-secondary border rounded text-center"><strong style="color:red">SECONNECTER</strong></h3>
-                        <form action="/login" method="POST">
-                            {%csrf_token%}
-
-                            <!-- Nom -->
-                            {% if error%}
-                            <div class="alert alert-danger" role="alert">
-                                {{error}}
-                            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<br>
+<div class="mask" style="background-color: rgba(91, 161, 170, 0.6)">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-dark text-center">
+                    <h3>Les commentaires que nos clients laissent à-propos des services rendus par cette plate-forme !</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="maisons" class="col-12 mx-auto">
+        <div class="row mx-auto">
+            {% for commente in commentaires %}
+            <div class="card mx-auto mb-3" style="width: 18rem;">
+                <div class="view overlay">
+                    <div class="row">
+                        <div class="col-6 mx-auto">
+                            {% if commente.photo %}
+                            <img src="{{commente.photo.url}}"
+                                 class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
                             {% endif %}
-
-                            <!-- Nom d'utilisateur -->
-                            <div class="form-group">
-                                {{form|crispy}}
+                            <div class="card-body text-center">
+                                <p><b>{{commente.nom}}</b> {{commente.prenom}}</p>
                             </div>
-
-                            <br>
-                            <!-- SECONNECTER -->
-                            <div class="form-group text-center">
-                                <button class="btn btn-warning" type="submit">Valider
-                                </button>
-                            </div>
-                            <br>
-                        </form>
-                        <div class="form-group text-center">
-                            <h5><strong style="color:rgb(208, 255, 0)">Vous etes nouveau?</strong><a href="signup">Cliquez ici pour S'Inscription</a></h5>
+                        </div>
+                        <div class="col-6">
+                            <p><b>{{commente.commentaire}}</b></p>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        <hr>
     </div>
 </div>
 {% endblock %}>

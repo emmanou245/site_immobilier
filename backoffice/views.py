@@ -52,6 +52,7 @@ def connecter(request):
     if request.user.is_authenticated:
         return redirect('/')
     form = LoginForm()
+    commentaires = Commentaire.objects.filter(visibilite=True)
     if request.method == "POST":
         form = LoginForm(request.POST or None)
         if form.is_valid():
@@ -62,7 +63,8 @@ def connecter(request):
                 login(request, user)
                 return redirect("/")
         return redirect('/')
-    return render(request, "login.html", {'form': form})
+    context = {'form': form, 'commentaires':commentaires}
+    return render(request, "login.html",context)
 
 def deconnecter(request):
     logout(request)
@@ -71,6 +73,7 @@ def deconnecter(request):
 def detail_maison(request,id_maison):
     maison = get_object_or_404(Maison, id=id_maison)
     photos = Images.objects.filter(maison=maison)
+    commentaires = Commentaire.objects.filter(visibilite=True)
     if request.method == 'POST':
         telephone = request.POST.get('telephone', '')
         message = request.POST.get('message','')
@@ -81,11 +84,6 @@ def detail_maison(request,id_maison):
         commande.user = request.user
         commande.save()
     return render(request, 'detail_maison.html', locals())
-
-def appropos(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    return render(request, 'appropos.html')
 
 def requette(request):
     if not request.user.is_authenticated:
@@ -184,12 +182,35 @@ def commentaire_view(request):
     commentaires = Commentaire.objects.all()
     if request.method == 'POST':
         photo = request.FILES.get('photo', '')
+        nom = request.POST.get('nom', '')
+        prenom = request.POST.get('prenom', '')
+        commentaire = request.POST.get('commentaire', '')
+        commenter = Commentaire()
+        commenter.photo = photo
+        commenter.nom = nom
+        commenter.prenom = prenom
+        commenter.commentaire = commentaire
+        commenter.user = request.user
+        commenter.save()
+        return redirect('/')
+    return render(request, 'commentair.html',{'liste_commentaire' : commentaires})
+
+def suggetion_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    commentaires = Commentaire.objects.all()
+    if request.method == 'POST':
+        photo = request.FILES.get('photo', '')
         commentaire = request.POST.get('commentaire', '')
         commenter = Commentaire()
         commenter.photo = photo
         commenter.commentaire = commentaire
         commenter.user = request.user
         commenter.save()
-        return redirect('/')
-    return render(request, 'commentair.html',{'liste_commentaire' : commentaires})
+        return redirect('login')
+    return render(request, 'suggetion.html',{'liste_commentaire' : commentaires})
+
+def sug_view(request):
+
+    return render(request, 'sug.html')
 

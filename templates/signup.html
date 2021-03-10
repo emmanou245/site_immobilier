@@ -1,14 +1,14 @@
 {% extends 'index.html'%}
 {%load crispy_forms_tags%}
 {% block content %}
-<div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
+<div class="mask" style="background-color: rgba(150, 158, 60, 0.952)">
 <div class="container">
     <div class="col-12">
-        <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:rgb(126, 126, 201)">FORMULAIRE D'INSCRIPTION</strong></h1>
+        <h1 class="alert alert-info p-4 text-small text-center"><strong style="color:rgb(64, 64, 201)">Creez votre compte pour aller se connecter au système ! afin de trouver la maison de mon rêve ou de poster mes annonces ! Merci ! </strong></h1>
     </div>
     <div class="p-4 m-4">
         <div class="col-lg-5 mx-auto border rounded pt-4">
-            <h3 class="alert alert-info p-4 text-center  border rounded">Creer Un Compte</h3>
+            <h3 class="alert alert-info p-4 text-center  border rounded">Formulaire D'Inscription</h3>
             <form action="/signup" method="POST">
                 {%csrf_token%}
                 {% if error%}
@@ -25,7 +25,7 @@
                 <br>
 
                 <div class="form-group text-center">
-                    <input type="submit" class="btn btn-warning" value="Creer">
+                    <input type="submit" class="btn btn-warning" value="Valider">
 
                 </div>
             </form>

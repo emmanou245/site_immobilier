@@ -48,12 +48,11 @@
 
     {%include 'navbar.html'%}
 
-
-
-
     {% block content %}
-        <div class="mask" style="background-color: rgba(117, 121, 72, 0.6)">
-            {%include 'search_result.html'%}
+        <div class="mask" style="background-color: rgba(194, 207, 53, 0.6)">
+            <div class="container-fluid mt-3">
+                {%include 'search_result.html'%}
+            </div>
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-6">
@@ -62,10 +61,13 @@
                             stress!</h2>
                         <h5 class="alert alert-dark p-4 text-center"> Vous êtes à quelques clics de
                             votre maison de rêve, de votre bureau et de votre mini cité!</h5>
+                        <div class="alert alert-dark p-4 text-center">
+                            <h5>Vous avez des suggestions à nous apporter?<a href="suggetion">Cliquez Ici</a></h5>
+                        </div>
                     </div>
                     <div class="col-6">
                         <div class="alert alert-dark p-4 text-center">
-                            <h2>Chers Bailers, si vous avez des Propriétés ou des Maisons vacantes ! vous pouvez ajouter vos annonces vous-même sans stress, en <a href="anonce">Cliquez Ici</a></h1>
+                            <h2>Chers Bailers, si vous avez des Propriétés ou des Maisons vacantes ou de Terrain que vous voullez mettre en location ou vendre ! vous pouvez ajouter vos annonces vous-même sans stress, en <a href="anonce">Cliquez Ici</a></h2>
                         </div>
                     </div>
                 </div>
@@ -74,8 +76,8 @@
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h3 class="alert alert-info border rounded"><i class="fa fa-home" aria-hidden="true"></i>
-                            <strong style="color:rgb(151, 81, 108)"> VOICI LES MAISONS DISPONIBLES POUR LE MOMENT</strong></h3>
+                        <h3 class="alert alert-dark border rounded"><i class="fa fa-home" aria-hidden="true"></i>
+                        <strong style="color:rgb(74, 48, 189)"> VOICI LES MAISONS DISPONIBLES POUR LE MOMENT</strong></h3>
                     </div>
                     <hr>
                     <div id="maisons" class="col-12 mx-auto">
@@ -105,23 +107,27 @@
                 </div>
             </div>
             <hr>
-            <div class="container-fluid mt-3">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 alert alert-dark text-center">
-                        <h2>Vous n'avez pas encore trouvé la Maison qui correspond à votre critère ?<a href="{% url 'requette' %}">Cliquez Ici</a> pour creer une demande de propriété!</h2>
-                        <br>
-                        <h5><strong style="color:rgb(172, 96, 96)">Créez une demande de propriété, nous permettra de connaitre votre critère et nous allons vous répondre dès que possible ! Merci.</strong></h5>
-
+                    <div class="col-12">
+                        <div class="alert alert-dark text-center">
+                            <h2>Vous n'avez pas encore trouvé la Maison qui correspond à votre critère ?<a href="{% url 'requette' %}">Cliquez Ici</a> pour creer une demande de propriété!</h2>
+                            <br>
+                            <h5><strong style="color:rgb(216, 31, 25, 0.6)">Créez une demande de propriété, nous permettra de connaitre votre critère et nous allons vous répondre dès que possible ! Merci.</strong></h5>
+                        </div>
                     </div>
 
                 </div>
             </div>
-       
-            <hr>
-            <div class="container">
+        </div>
+        <hr>
+        <div class="mask" style="background-color: rgba(91, 161, 170, 0.6)">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 alert alert-dark p-4 text-center">
-                        <h2>Avez-vous des commentaires à ajouter,appropos des services que rend de cette Plate-Forme?<a href="commentair">Cliquez Ici</a></h2>
+                    <div class="col-12">
+                        <div class="alert alert-dark text-center">
+                            <h2>Avez-vous des commentaires à ajouter, à-propos des services que vous a rendu cette Plate-Forme ?<a href="commentair">Cliquez Ici</a></h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,6 +143,9 @@
                                             <img src="{{commente.photo.url}}"
                                                 class="progressive-image img-fluid w-100 progressive-image-4" alt="....">
                                             {% endif %}
+                                            <div class="card-body text-center">
+                                                <p><b>{{commente.nom}}</b> {{commente.prenom}}</p>
+                                            </div>
                                     </div>
                                     <div class="col-6">
                                         <p><b>{{commente.commentaire}}</b></p>
@@ -146,10 +155,10 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <hr>
                 </div>
             </div>
         </div>
-
     <script>
             // You can also use "$(window).load(function() {"
             $(function () {
@@ -232,7 +241,7 @@
             });
         </script>
     {% endblock %}
-   <br>
+    <br>
     {%include '_footer.html'%}
 
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
